@@ -435,11 +435,14 @@ footer p{font-size:.75rem;}
           <div class="af"><label>Spine colour (if no photo)</label><input type="color" id="aColor" value="#5c3a1e"/></div>
           <div class="af af-full">
   <label>Photo URL (Google Drive direct link)</label>
-  <input type="text" id="aPhotoUrl" placeholder="https://drive.google.com/uc?id=1abc123..." style="margin-bottom:8px;"/>
+  <input type="text" id="aPhotoUrl" placeholder="https://drive.google.com/uc?id=1abc123..." style="margin-bottom:8px;width:100%;"/>
   <p style="font-size:0.75rem;color:#8c6f5f;margin-top:4px;">
-    How to get link: Open image in Google Drive → right-click → Share → Copy link → change <code>open?id=</code> to <code>uc?id=</code>
+    How to get it:<br>
+    1. Upload image to Google Drive<br>
+    2. Right-click → Share → Anyone with the link<br>
+    3. Copy link → change <code>open?id=</code> to <code>uc?id=</code>
   </p>
-  <div id="photoPreview" style="margin-top:12px;"></div>
+  <div id="photoPreview" style="margin-top:12px;max-width:200px;"></div>
 </div>
           <div class="af af-full ap-btns">
             <button class="ap-btn ap-btn-primary" onclick="saveBook()">💾 Save Book</button>
@@ -649,9 +652,9 @@ function renderBooks(){
     const orig=parseInt(b.price||0);
     const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
     const s=sym();
-    const photoHtml = (b.photos && b.photos[0]) 
-      ? `<img src="${b.photos[0]}" alt="${b.title}"/>`
-      : `<div class="no-photo-book" style="background:${b.color||'#5c3a1e'}">${b.title}</div>`;
+    const photoHtml = b.photoUrl && b.photoUrl.length > 10
+  ? `<img src="${b.photoUrl}" alt="${b.title}"/>`
+  : `<div class="no-photo-book" style="background:${b.color||'#5c3a1e'}">${b.title}</div>`;
     const ribbon=disc>0?`<div class="disc-ribbon">-${disc}% OFF</div>`:'';
     const priceBlock=disc>0
       ?`<div class="orig-price">${convertPrice(orig)} ${s}</div><div class="book-price">${convertPrice(fin)} <span>${s}</span></div>`
@@ -733,12 +736,10 @@ async function saveBook(){
     return;
   }
 
-  const photos = photoUrl ? [photoUrl] : [];
-
   const book = {
     id: id || Date.now().toString(),
     title, author, genre, condition, condNote, price, discount, color,
-    photos,
+    photoUrl,           // ← this matches your Apps Script
     sold: false,
     added: new Date().toISOString()
   };
@@ -748,7 +749,7 @@ async function saveBook(){
   const url = getSheetUrl();
   if(url){
     try{
-      const result = await pushToSheet(book);
+      await pushToSheet(book);
       showToast(id ? 'Book updated ✓' : 'Book added ✓','success');
     } catch(e){
       console.error(e);
@@ -840,7 +841,9 @@ function renderAdminList(){
     const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
     const pStr=disc>0?`${fin.toLocaleString()} HUF <span style="text-decoration:line-through;color:#8c6f5f;font-size:.68rem">${orig.toLocaleString()}</span>`:`${orig.toLocaleString()} HUF`;
     const isSold=!!b.sold;
-    const thumb=(b.photos&&b.photos[0])?`<img src="${b.photos[0]}" alt=""/>`:'📷';
+    const thumb = b.photoUrl && b.photoUrl.length > 10 
+  ? `<img src="${b.photoUrl}" alt=""/>` 
+  : '📷';
     return `<div class="ap-book-row">
       <div class="ap-thumb">${thumb}</div>
       <div class="ap-binfo">
