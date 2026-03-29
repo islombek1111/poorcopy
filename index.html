@@ -821,15 +821,32 @@ async function deleteBook(id){
   showToast('Book deleted','success');
 }
 
-function clearForm(){
-  ['editId','aTitle','aAuthor','aCondNote','aPrice','aDiscount'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('aGenre').value='fiction';
-  document.getElementById('aCondition').value='new';
-  document.getElementById('aColor').value='#5c3a1e';
-  currentPhoto=null;
-  document.getElementById('photoPreview').innerHTML='';
-  document.getElementById('compressNote').textContent='';
-  document.getElementById('formHeading').textContent='Add a New Book';
+function clearForm() {
+  const ids = ['editId', 'aTitle', 'aAuthor', 'aCondNote', 'aPrice', 'aDiscount'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  
+  const aGenre = document.getElementById('aGenre');
+  if (aGenre) aGenre.value = 'fiction';
+  
+  const aCondition = document.getElementById('aCondition');
+  if (aCondition) aCondition.value = 'new';
+  
+  const aColor = document.getElementById('aColor');
+  if (aColor) aColor.value = '#5c3a1e';
+  
+  currentPhoto = null;
+  
+  const photoPreview = document.getElementById('photoPreview');
+  if (photoPreview) photoPreview.innerHTML = '';
+  
+  const compressNote = document.getElementById('compressNote');
+  if (compressNote) compressNote.textContent = '';
+  
+  const formHeading = document.getElementById('formHeading');
+  if (formHeading) formHeading.textContent = 'Add a New Book';
 }
 
 function renderAdminList(){
