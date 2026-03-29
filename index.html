@@ -434,14 +434,13 @@ footer p{font-size:.75rem;}
           <div class="af"><label>Discount % (0 = none)</label><input type="number" id="aDiscount" placeholder="e.g. 20" min="0" max="90"/></div>
           <div class="af"><label>Spine colour (if no photo)</label><input type="color" id="aColor" value="#5c3a1e"/></div>
           <div class="af af-full">
-            <label>Book Photo (upload from your device)</label>
-            <div class="photo-upload-box" id="photoUploadBox">
-              <input type="file" id="photoInput" accept="image/*" onchange="handlePhoto(this)"/>
-              <div class="photo-upload-hint">📷 Tap or click to upload a photo<br/><span style="font-size:.6rem;margin-top:3px;display:block;color:#8c6f5f">JPG or PNG — will be compressed automatically</span></div>
-              <div class="photo-preview-grid" id="photoPreview"></div>
-            </div>
-            <p class="compress-note" id="compressNote"></p>
-          </div>
+  <label>Photo URL (Google Drive direct link)</label>
+  <input type="text" id="aPhotoUrl" placeholder="https://drive.google.com/uc?id=1abc123..." style="margin-bottom:8px;"/>
+  <p style="font-size:0.75rem;color:#8c6f5f;margin-top:4px;">
+    How to get link: Open image in Google Drive → right-click → Share → Copy link → change <code>open?id=</code> to <code>uc?id=</code>
+  </p>
+  <div id="photoPreview" style="margin-top:12px;"></div>
+</div>
           <div class="af af-full ap-btns">
             <button class="ap-btn ap-btn-primary" onclick="saveBook()">💾 Save Book</button>
             <button class="ap-btn ap-btn-secondary" onclick="clearForm()">✕ Clear</button>
@@ -718,45 +717,47 @@ function switchTab(id,btn){
 }
 
 async function saveBook(){
-  const id=document.getElementById('editId').value;
-  const title=document.getElementById('aTitle').value.trim();
-  const author=document.getElementById('aAuthor').value.trim();
-  const genre=document.getElementById('aGenre').value;
-  const condition=document.getElementById('aCondition').value;
-  const condNote=document.getElementById('aCondNote').value.trim();
-  const price=document.getElementById('aPrice').value.trim();
-  const discount=document.getElementById('aDiscount').value.trim()||'0';
-  const color=document.getElementById('aColor').value;
+  const id       = document.getElementById('editId').value;
+  const title    = document.getElementById('aTitle').value.trim();
+  const author   = document.getElementById('aAuthor').value.trim();
+  const genre    = document.getElementById('aGenre').value;
+  const condition= document.getElementById('aCondition').value;
+  const condNote = document.getElementById('aCondNote').value.trim();
+  const price    = document.getElementById('aPrice').value.trim();
+  const discount = document.getElementById('aDiscount').value.trim() || '0';
+  const color    = document.getElementById('aColor').value;
+  const photoUrl = document.getElementById('aPhotoUrl').value.trim();
 
-  if(!title||!author||!price){showToast('Title, author and price required','error');return;}
-
-  let photos = currentPhoto ? [currentPhoto.data] : [];
-  if(!currentPhoto && id){
-    const existing = allBooks.find(b=>b.id===id);
-    if(existing && existing.photos) photos = existing.photos;
+  if(!title || !author || !price){
+    showToast('Title, author and price required','error');
+    return;
   }
 
-  const book={
-    id: id||Date.now().toString(),
-    title,author,genre,condition,condNote,price,discount,color,
+  const photos = photoUrl ? [photoUrl] : [];
+
+  const book = {
+    id: id || Date.now().toString(),
+    title, author, genre, condition, condNote, price, discount, color,
     photos,
     sold: false,
     added: new Date().toISOString()
   };
 
-  showToast('Saving to sheet...');
-  const url=getSheetUrl();
+  showToast('Saving to Google Sheet...');
+
+  const url = getSheetUrl();
   if(url){
     try{
-      await pushToSheet(book);
-      showToast(id?'Book updated ✓':'Book added ✓','success');
-    }catch(e){
-      showToast('Sheet unreachable — saved locally','error');
-      saveLocally(book,!!id);
+      const result = await pushToSheet(book);
+      showToast(id ? 'Book updated ✓' : 'Book added ✓','success');
+    } catch(e){
+      console.error(e);
+      showToast('Sheet unreachable — saved locally only','error');
+      saveLocally(book, !!id);
     }
   } else {
-    saveLocally(book,!!id);
-    showToast(id?'Updated locally ✓':'Added locally ✓','success');
+    saveLocally(book, !!id);
+    showToast(id ? 'Updated locally ✓' : 'Added locally ✓','success');
   }
 
   clearForm();
