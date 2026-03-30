@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>p👀rCopy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --night-d:#3a2522;
+  --night:#4a2f2a;
+  --night-l:#6b4640;
+  --bg:#fdf8f3;
+  --white:#ffffff;
+  --gold:#d9b36b;
+  --gold-l:#f0d29a;
+  --terra:#c0624a;
+  --terra-l:#d4785e;
+  --warm1:#f7efe6;
+  --warm2:#eeddd0;
+  --ink:#1a0f07;
+  --muted:#7a6655;
+  --silver:#a09080;
+  --border:#e0d0c0;
+  --shadow:rgba(74,47,42,.12);
+  --red:#c0624a;
+  --green:#5e8c6f;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+/* ── HEADER ── */
+.logo-text{font-family:'Playfair Display',serif;font-size:1.38rem;display:inline-flex;align-items:center;gap:0;letter-spacing:-.01em;color:var(--white);text-decoration:none;white-space:nowrap;}
+.logo-text .eyes{display:inline-block;animation:blink 3s infinite;font-style:normal;line-height:1;font-size:1.2rem;margin:0 1px;}
+@keyframes blink{0%,90%,100%{transform:scaleY(1);}95%{transform:scaleY(0.15);}}
+header{background:var(--night-d);color:var(--white);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,15,40,.4);}
+nav{display:flex;gap:20px;align-items:center;}
+nav a{color:rgba(255,255,255,.72);text-decoration:none;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;}
+nav a:hover{color:var(--gold);}
+.nav-cta{background:var(--terra);color:#fff!important;padding:7px 15px;border-radius:4px;}
+.nav-cta:hover{background:var(--terra-l)!important;}
+.curr-switcher{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.07);border-radius:6px;padding:3px;border:1px solid rgba(255,255,255,.11);}
+.curr-btn{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border:none;border-radius:4px;background:transparent;color:rgba(255,255,255,.5);cursor:pointer;transition:all .2s;}
+.curr-btn.active{background:var(--gold);color:var(--night-d);font-weight:500;}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--night-d) 0%,var(--night) 55%,#8c5e57 100%);color:var(--white);padding:88px 5vw 68px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:70vh;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.035) 1px,transparent 0);background-size:38px 38px;pointer-events:none;}
+.hero::after{content:'';position:absolute;right:-60px;bottom:-60px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(192,98,74,.13) 0%,transparent 70%);pointer-events:none;}
+.hero-text{animation:fadeUp .8s ease both;position:relative;z-index:1;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.12;margin-bottom:20px;color:var(--white);}
+h1 em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:.97rem;color:rgba(255,255,255,.62);max-width:400px;margin-bottom:36px;line-height:1.8;font-weight:300;}
+.hero-btns{display:flex;gap:11px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:5px;transition:all .22s;cursor:pointer;border:none;font-weight:500;}
+.btn-primary{background:var(--terra);color:#fff;}
+.btn-primary:hover{background:var(--terra-l);transform:translateY(-2px);box-shadow:0 8px 22px rgba(192,98,74,.35);}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.28);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.stats{display:flex;gap:36px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.11);}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.85rem;color:var(--gold);line-height:1;}
+.stat-l{font-family:'DM Mono',monospace;font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;}
+.hero-visual{display:flex;justify-content:center;align-items:flex-end;animation:fadeUp .8s .2s ease both;position:relative;z-index:1;}
+.book-stack{position:relative;width:255px;height:310px;}
+.dbook{position:absolute;border-radius:3px 8px 8px 3px;box-shadow:6px 6px 20px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.6rem;writing-mode:vertical-rl;color:rgba(255,255,255,.9);padding:10px 6px;transition:transform .4s;}
+.dbook:hover{transform:translateY(-14px) rotate(-1deg)!important;}
+.db1{width:50px;height:232px;background:#5c3a1e;bottom:0;left:16px;transform:rotate(-4deg);}
+.db2{width:57px;height:272px;background:#8c5e57;bottom:0;left:72px;transform:rotate(1deg);}
+.db3{width:46px;height:198px;background:#6b4640;bottom:0;left:135px;transform:rotate(3deg);}
+.db4{width:54px;height:252px;background:#4a2f2a;bottom:0;left:187px;transform:rotate(-2deg);}
+
+/* ── SECTIONS ── */
+section{padding:72px 5vw;}
+.sec-label{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);max-width:80px;}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.65rem,2.5vw,2.2rem);margin-bottom:10px;line-height:1.25;color:var(--night-d);}
+.sec-sub{color:var(--muted);font-size:.93rem;max-width:440px;margin-bottom:40px;font-weight:300;}
+
+/* ── CATEGORIES ── */
+.cats{background:var(--white);}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.cat-card{border:1.5px solid var(--border);border-radius:12px;padding:26px 20px;background:var(--warm1);transition:all .25s;position:relative;overflow:hidden;cursor:pointer;}
+.cat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .32s;}
+.cat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow);border-color:var(--warm2);}
+.cat-card:hover::after{transform:scaleX(1);}
+.cat-icon{font-size:1.9rem;margin-bottom:12px;}
+.cat-name{font-family:'Playfair Display',serif;font-size:1.06rem;margin-bottom:4px;color:var(--night-d);}
+.cat-desc{font-size:.83rem;color:var(--muted);line-height:1.55;font-weight:300;}
+
+/* ── BOOKS ── */
+#books{background:var(--bg);}
+.filter-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:30px;}
+.fb{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border:1.5px solid var(--border);border-radius:20px;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;}
+.fb:hover,.fb.active{background:var(--night-d);color:var(--white);border-color:var(--night-d);}
+.fb-sale.active{background:var(--terra);border-color:var(--terra);}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;}
+.book-card{background:var(--white);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:all .28s;display:flex;flex-direction:column;position:relative;}
+.book-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px var(--shadow);border-color:var(--warm2);}
+.book-photo{height:195px;overflow:hidden;background:var(--warm1);display:flex;align-items:center;justify-content:center;position:relative;}
+.book-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.book-card:hover .book-photo img{transform:scale(1.05);}
+.no-photo-book{width:88px;height:128px;border-radius:2px 8px 8px 2px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.58rem;writing-mode:vertical-rl;color:rgba(255,255,255,.92);box-shadow:5px 5px 16px rgba(0,0,0,.24);padding:8px;text-align:center;}
+.badge{position:absolute;top:10px;right:10px;font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.badge-new{background:var(--night-d);color:#fff;}
+.badge-used{background:#7a4a2a;color:#fff;}
+.disc-ribbon{position:absolute;top:10px;left:10px;background:var(--terra);color:#fff;font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;}
+.book-info{padding:16px;flex:1;display:flex;flex-direction:column;}
+.book-genre{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:5px;}
+.book-title{font-family:'Playfair Display',serif;font-size:.93rem;line-height:1.3;margin-bottom:2px;color:var(--night-d);}
+.book-author{font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:7px;}
+.book-cond{font-size:.72rem;color:var(--silver);margin-bottom:11px;font-weight:300;}
+.book-footer{display:flex;align-items:flex-end;justify-content:space-between;margin-top:auto;gap:6px;}
+.orig-price{font-size:.67rem;color:var(--silver);text-decoration:line-through;font-family:'DM Mono',monospace;line-height:1;}
+.book-price{font-family:'Playfair Display',serif;font-size:1.08rem;color:var(--night-d);font-weight:700;line-height:1.1;}
+.book-price span{font-size:.63rem;font-weight:400;color:var(--muted);font-family:'DM Mono',monospace;}
+.buy-btn{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;background:var(--terra);color:#fff;border:none;border-radius:4px;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.buy-btn:hover{background:var(--terra-l);}
+.sold-lbl{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.08em;text-transform:uppercase;color:var(--silver);}
+.loading-grid{display:flex;align-items:center;justify-content:center;gap:12px;padding:60px;color:var(--muted);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;grid-column:1/-1;}
+.spinner{width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--terra);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── BANNER ── */
+.banner{background:linear-gradient(135deg,var(--night-d),#5a2e18);color:var(--white);text-align:center;padding:56px 5vw;}
+.banner h2{color:var(--white);margin-bottom:10px;}
+.banner p{color:rgba(255,255,255,.58);max-width:430px;margin:0 auto 24px;font-size:.93rem;font-weight:300;}
+
+/* ── CONTACT ── */
+#contact{background:var(--white);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;}
+.c-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--warm1);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;transition:all .2s;}
+.c-item:hover{box-shadow:0 6px 18px var(--shadow);transform:translateY(-2px);}
+.c-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
+.c-details h3{font-family:'Playfair Display',serif;font-size:.97rem;margin-bottom:2px;color:var(--night-d);}
+.c-details p{font-size:.82rem;color:var(--muted);margin-bottom:7px;font-weight:300;}
+.c-link{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.08em;color:var(--terra);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .2s;}
+.c-link:hover{border-color:var(--terra);}
+.map-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-top:8px;}
+.map-wrap iframe{display:block;width:100%;height:210px;}
+.c-form{background:var(--warm1);border:1px solid var(--border);border-radius:12px;padding:26px;}
+.c-form h3{font-family:'Playfair Display',serif;font-size:1.12rem;margin-bottom:5px;color:var(--night-d);}
+.c-form p{font-size:.82rem;color:var(--muted);margin-bottom:18px;font-weight:300;}
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-family:'DM Mono',monospace;font-size:.61rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.fg input,.fg textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);color:var(--ink);font-family:'Inter',sans-serif;font-size:.86rem;outline:none;transition:border-color .2s;}
+.fg input:focus,.fg textarea:focus{border-color:var(--terra);}
+.fg textarea{resize:vertical;min-height:84px;}
+.f-submit{width:100%;padding:11px;background:var(--terra);color:#fff;font-family:'DM Mono',monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;border:none;border-radius:6px;cursor:pointer;transition:all .22s;margin-top:4px;}
+.f-submit:hover{background:var(--terra-l);}
+
+/* ── FOOTER ── */
+footer{background:var(--night-d);color:rgba(255,255,255,.46);padding:32px 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+footer p{font-size:.75rem;}
+.f-links{display:flex;gap:16px;}
+.f-links a{color:rgba(255,255,255,.36);text-decoration:none;font-family:'DM Mono',monospace;font-size:.61rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+.f-links a:hover{color:var(--gold);}
+
+/* ── BUY MODAL ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(10,5,0,.72);z-index:600;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.overlay.open{display:flex;}
+.modal{background:var(--white);border-radius:14px;padding:34px;max-width:400px;width:92%;position:relative;animation:popIn .28s ease;border-top:4px solid var(--terra);}
+.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--silver);}
+.modal h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:4px;color:var(--night-d);}
+.modal .meta{color:var(--muted);font-size:.82rem;font-style:italic;margin-bottom:22px;font-weight:300;}
+.m-opts{display:flex;flex-direction:column;gap:10px;}
+.m-opt{display:flex;align-items:center;gap:13px;padding:13px 15px;border:1.5px solid var(--border);border-radius:8px;text-decoration:none;color:var(--ink);transition:all .22s;}
+.m-opt:hover{border-color:var(--terra);background:rgba(192,98,74,.05);transform:translateX(4px);}
+.m-opt-icon{font-size:1.3rem;}
+.m-opt-text strong{display:block;font-family:'Playfair Display',serif;font-size:.92rem;color:var(--night-d);}
+.m-opt-text span{font-size:.75rem;color:var(--muted);font-weight:300;}
+
+/* ── ADMIN ── */
+#adminBtn{position:fixed;bottom:20px;right:20px;background:var(--night-d);color:var(--white);border:none;border-radius:50%;width:46px;height:46px;font-size:1.1rem;cursor:pointer;z-index:400;box-shadow:0 4px 14px rgba(0,15,40,.35);transition:all .2s;opacity:.4;}
+#adminBtn:hover{opacity:1;transform:scale(1.1);}
+#adminPanel{display:none;position:fixed;inset:0;background:#1c1613;z-index:700;overflow-y:auto;}
+#adminPanel.open{display:block;}
+.ap-header{background:#15100e;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #3a2f2c;position:sticky;top:0;z-index:10;}
+.ap-header h2{font-family:'Playfair Display',serif;color:var(--white);font-size:1.1rem;margin:0;}
+.ap-close{background:none;border:1px solid var(--gold);color:var(--gold);font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:6px 13px;border-radius:3px;transition:all .2s;}
+.ap-close:hover{background:var(--gold);color:var(--night-d);}
+.ap-body{padding:24px;max-width:900px;margin:0 auto;}
+.ap-tabs{display:flex;gap:2px;margin-bottom:22px;border-bottom:1px solid #3a2f2c;}
+.ap-tab{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:9px 15px;background:none;border:none;color:#8c6f5f;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;}
+.ap-tab.active,.ap-tab:hover{color:var(--gold);}
+.ap-tab.active{border-bottom-color:var(--gold);}
+.ap-pane{display:none;}
+.ap-pane.active{display:block;}
+.ap-form{background:#2a211f;border:1px solid #3a2f2c;border-radius:8px;padding:22px;}
+.ap-form h3{font-family:'Playfair Display',serif;color:var(--white);font-size:.98rem;margin-bottom:14px;}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.af{margin-bottom:0;}
+.af label{display:block;font-family:'DM Mono',monospace;font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:#8c6f5f;margin-bottom:4px;}
+.af input,.af textarea,.af select{width:100%;padding:8px 11px;border:1.5px solid #3a2f2c;border-radius:4px;background:#1c1613;color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;}
+.af input:focus,.af textarea:focus,.af select:focus{border-color:var(--gold);}
+.photo-upload-box{border:2px dashed #3a2f2c;border-radius:8px;padding:18px;text-align:center;position:relative;transition:border-color .2s;cursor:pointer;margin-bottom:4px;}
+.photo-upload-box:hover{border-color:var(--gold);}
+.photo-upload-box input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.photo-upload-hint{color:#8c6f5f;font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.08em;pointer-events:none;}
+.photo-preview-grid{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.photo-thumb{position:relative;width:66px;height:86px;border-radius:4px;overflow:hidden;flex-shrink:0;}
+.photo-thumb img{width:100%;height:100%;object-fit:cover;}
+.photo-thumb .rm{position:absolute;top:2px;right:2px;background:rgba(180,40,30,.9);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:.65rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
+.ap-btns{display:flex;gap:8px;margin-top:14px;grid-column:1/-1;flex-wrap:wrap;}
+.ap-btn{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:9px 17px;border:none;border-radius:3px;cursor:pointer;transition:all .2s;}
+.ap-btn-primary{background:var(--gold);color:var(--night-d);}
+.ap-btn-primary:hover{background:var(--gold-l);}
+.ap-btn-secondary{background:#3a2f2c;color:var(--white);}
+.ap-btn-secondary:hover{background:#4a3f3c;}
+.ap-btn-danger{background:#3a1a1a;color:#f08080;}
+.ap-btn-danger:hover{background:#4a2a2a;}
+.ap-book-list{display:flex;flex-direction:column;gap:9px;margin-top:4px;}
+.ap-book-row{background:#2a211f;border:1px solid #3a2f2c;border-radius:6px;padding:11px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.ap-thumb{width:40px;height:54px;border-radius:3px;overflow:hidden;flex-shrink:0;background:#3a2f2c;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#8c6f5f;}
+.ap-thumb img{width:100%;height:100%;object-fit:cover;}
+.ap-binfo{flex:1;min-width:140px;}
+.ap-binfo strong{display:block;color:var(--white);font-family:'Playfair Display',serif;font-size:.86rem;}
+.ap-binfo span{font-size:.71rem;color:#8c6f5f;}
+.sold-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;background:#0a2a0a;color:#7ecf80;border-radius:2px;margin-left:5px;vertical-align:middle;}
+.disc-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;background:#3a1a0a;color:#f0a070;border-radius:2px;margin-left:4px;vertical-align:middle;}
+.ap-price{font-family:'DM Mono',monospace;color:var(--gold);font-size:.76rem;flex-shrink:0;}
+.ap-actions{display:flex;gap:5px;flex-shrink:0;flex-wrap:wrap;}
+.ap-actions button{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border:none;border-radius:3px;cursor:pointer;transition:background .2s;}
+.btn-edit{background:#3a2f2c;color:var(--white);}
+.btn-edit:hover{background:#4a3f3c;}
+.btn-sold-toggle{background:#0a2a0a;color:#7ecf80;}
+.btn-sold-toggle:hover{background:#1a3a1a;}
+.btn-del{background:#3a1a1a;color:#f08080;}
+.btn-del:hover{background:#4a2a2a;}
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.s-box{background:#2a211f;border:1px solid #3a2f2c;border-radius:8px;padding:18px;}
+.s-box h4{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#8c6f5f;margin-bottom:13px;}
+.s-row{margin-bottom:11px;}
+.s-row label{display:block;font-size:.75rem;color:#8c6f5f;margin-bottom:4px;}
+.s-row input{width:100%;padding:8px 11px;border:1.5px solid #3a2f2c;border-radius:4px;background:#1c1613;color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;}
+.s-row input:focus{border-color:var(--gold);}
+.info-box{background:#1c1613;border:1px solid #4a3f3c;border-radius:6px;padding:13px 15px;margin-bottom:13px;font-size:.78rem;color:#c9a88a;line-height:1.6;}
+.toast{position:fixed;bottom:72px;right:18px;background:var(--night-d);color:var(--white);font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 15px;border-radius:6px;z-index:900;transform:translateY(14px);opacity:0;transition:all .3s;pointer-events:none;max-width:260px;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.success{background:var(--green);}
+.toast.error{background:var(--red);}
+.empty{text-align:center;padding:46px 20px;color:var(--muted);}
+.empty-icon{font-size:2.5rem;margin-bottom:12px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding-top:46px;min-height:auto;}
+  .hero-visual{display:none;}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  nav{display:none;}
+  .ap-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo-text" href="#">p<em class="eyes">👀</em>rCopy</a>
+  <nav>
+    <a href="#books">Browse</a>
+    <a href="#categories">Categories</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Buy a Book</a>
+  </nav>
+  <div class="curr-switcher">
+    <button class="curr-btn" onclick="setCurrency('UZS',this)">UZS</button>
+    <button class="curr-btn" onclick="setCurrency('USD',this)">USD</button>
+    <button class="curr-btn" onclick="setCurrency('EUR',this)">EUR</button>
+    <button class="curr-btn active" onclick="setCurrency('HUF',this)">HUF</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Curated · Affordable · Loved</div>
+    <h1>Books that deserve a <em>new home</em></h1>
+    <p class="hero-sub">A personal collection of fiction, non-fiction, and academic books — hand-picked and sold with care. New and pre-loved copies available.</p>
+    <div class="hero-btns">
+      <a href="#books" class="btn btn-primary">📖 Browse Books</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="stats">
+      <div><div class="stat-n" id="statCount">—</div><div class="stat-l">Books available</div></div>
+      <div><div class="stat-n">3</div><div class="stat-l">Genres</div></div>
+      <div><div class="stat-n" id="statCurr">HUF</div><div class="stat-l">Currency</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="book-stack">
+      <div class="dbook db1">Novel</div>
+      <div class="dbook db2">Self Help</div>
+      <div class="dbook db3">Study</div>
+      <div class="dbook db4">Fiction</div>
+    </div>
+  </div>
+</section>
+
+<section class="cats" id="categories">
+  <div class="sec-label">What's available</div>
+  <h2>Browse by Category</h2>
+  <p class="sec-sub">Click a category to jump straight to those books.</p>
+  <div class="cat-grid">
+    <div class="cat-card" onclick="jumpToFilter('fiction')"><div class="cat-icon">🎭</div><div class="cat-name">Fiction</div><div class="cat-desc">Classics, contemporary, thrillers, and world literature.</div></div>
+    <div class="cat-card" onclick="jumpToFilter('nonfiction')"><div class="cat-icon">🧠</div><div class="cat-name">Non-Fiction</div><div class="cat-desc">Mindset, productivity, business, and personal development.</div></div>
+    <div class="cat-card" onclick="jumpToFilter('academic')"><div class="cat-icon">🎓</div><div class="cat-name">Academic</div><div class="cat-desc">University-level books without the bookstore price tag.</div></div>
+  </div>
+</section>
+
+<section id="books">
+  <div class="sec-label">The collection</div>
+  <h2>Available Books</h2>
+  <p class="sec-sub">All books are ready to go — contact me to arrange pickup.</p>
+  <div class="filter-bar">
+    <button class="fb active" onclick="filterBooks('all',this)">All</button>
+    <button class="fb" id="fb-fiction" onclick="filterBooks('fiction',this)">Fiction</button>
+    <button class="fb" id="fb-nonfiction" onclick="filterBooks('nonfiction',this)">Non-Fiction</button>
+    <button class="fb" id="fb-academic" onclick="filterBooks('academic',this)">Academic</button>
+    <button class="fb" onclick="filterBooks('new',this)">New copies</button>
+    <button class="fb" onclick="filterBooks('used',this)">Pre-loved</button>
+    <button class="fb fb-sale" onclick="filterBooks('discount',this)">🏷️ On Sale</button>
+  </div>
+  <div class="books-grid" id="booksGrid">
+    <div class="loading-grid"><div class="spinner"></div>Loading books…</div>
+  </div>
+</section>
+
+<div class="banner">
+  <h2>More books added regularly</h2>
+  <p>The collection keeps growing. Follow on Telegram for new arrivals and flash discounts.</p>
+  <a id="bannerTg" href="#" class="btn btn-primary" target="_blank">✈️ Follow on Telegram</a>
+</div>
+
+<section id="contact">
+  <div class="sec-label">Come pick it up</div>
+  <h2>Get in Touch</h2>
+  <p class="sec-sub">Found something you like? Reach out — pickup only at Blaha Lujza tér, Budapest.</p>
+  <div class="contact-grid">
+    <div>
+      <div class="c-item"><div class="c-icon">✈️</div><div class="c-details"><h3>Telegram</h3><p>Fastest way to reach me. Send the book title and I'll reply quickly.</p><a id="tgLink" href="#" class="c-link" target="_blank">Open Telegram →</a></div></div>
+      <div class="c-item"><div class="c-icon">✉️</div><div class="c-details"><h3>Email</h3><p>Prefer email? Write me anytime.</p><a id="emailLink" href="#" class="c-link">Send Email →</a></div></div>
+      <div class="c-item">
+        <div class="c-icon">📍</div>
+        <div class="c-details">
+          <h3>Pickup Only</h3>
+          <p><strong>Blaha Lujza tér, Budapest 1085</strong> — cash on pickup.</p>
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1347.8274246755452!2d19.068914620283707!3d47.49663684426092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc6767b07d9b%3A0x7be2e24544320049!2sBudapest%2C%20Blaha%20Lujza%20t%C3%A9r%2C%201085!5e0!3m2!1sen!2shu!4v1774790532997!5m2!1sen!2shu" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-form">
+      <h3>Send an enquiry</h3>
+      <p>Tell me which book you want and I'll confirm pickup details within 24 hours.</p>
+      <div class="fg"><label>Your name</label><input type="text" id="fname" placeholder="e.g. Dilnoza"/></div>
+      <div class="fg"><label>Contact (Telegram or Email)</label><input type="text" id="fcontact" placeholder="@telegram or email@example.com"/></div>
+      <div class="fg"><label>Which book(s)?</label><input type="text" id="fbooks" placeholder="Book title(s)"/></div>
+      <div class="fg"><label>Message (optional)</label><textarea id="fmsg" placeholder="Preferred time, questions, etc."></textarea></div>
+      <button class="f-submit" onclick="sendEnquiry()">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <a class="logo-text" href="#" style="font-size:1.08rem;">p<em class="eyes">👀</em>rCopy</a>
+    <p style="margin-top:4px">Pre-loved books · Blaha Lujza tér, Budapest</p>
+  </div>
+  <div class="f-links"><a href="#books">Books</a><a href="#categories">Categories</a><a href="#contact">Contact</a></div>
+  <p>© 2026 p👀rCopy</p>
+</footer>
+
+<!-- BUY MODAL -->
+<div class="overlay" id="buyOverlay" onclick="closeBuyModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('buyOverlay').classList.remove('open')">✕</button>
+    <h3 id="mTitle"></h3>
+    <p class="meta" id="mMeta"></p>
+    <div class="m-opts">
+      <a href="#" id="mTg" class="m-opt" target="_blank">
+        <span class="m-opt-icon">✈️</span>
+        <span class="m-opt-text"><strong>Message on Telegram</strong><span>Fastest — usually reply within hours</span></span>
+      </a>
+      <a href="#" id="mEmail" class="m-opt">
+        <span class="m-opt-icon">✉️</span>
+        <span class="m-opt-text"><strong>Send an Email</strong><span>I'll confirm pickup within 24h</span></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN BUTTON -->
+<button id="adminBtn" title="Admin" onclick="promptAdmin()">⚙️</button>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+  <div class="ap-header">
+    <h2>⚙️ p👀rCopy Admin</h2>
+    <button class="ap-close" onclick="closeAdmin()">✕ Back to Site</button>
+  </div>
+  <div class="ap-body">
+    <div class="ap-tabs">
+      <button class="ap-tab active" onclick="switchTab('tabAdd',this)">➕ Add / Edit</button>
+      <button class="ap-tab" onclick="switchTab('tabManage',this)">📚 All Books</button>
+      <button class="ap-tab" onclick="switchTab('tabSettings',this)">🔧 Settings</button>
+    </div>
+
+    <div id="tabAdd" class="ap-pane active">
+      <div class="ap-form">
+        <h3 id="formHeading">Add a New Book</h3>
+        <input type="hidden" id="editId"/>
+        <div class="ap-grid">
+          <div class="af"><label>Title *</label><input type="text" id="aTitle" placeholder="e.g. Atomic Habits"/></div>
+          <div class="af"><label>Author *</label><input type="text" id="aAuthor" placeholder="e.g. James Clear"/></div>
+          <div class="af"><label>Genre *</label>
+            <select id="aGenre">
+              <option value="fiction">Fiction</option>
+              <option value="nonfiction">Non-Fiction</option>
+              <option value="academic">Academic</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="af"><label>Condition *</label>
+            <select id="aCondition">
+              <option value="new">New copy</option>
+              <option value="used">Pre-loved</option>
+            </select>
+          </div>
+          <div class="af"><label>Condition note</label><input type="text" id="aCondNote" placeholder="e.g. Minor highlighting"/></div>
+          <div class="af"><label>Price in HUF *</label><input type="number" id="aPrice" placeholder="e.g. 4500" min="0"/></div>
+          <div class="af"><label>Discount % (0 = none)</label><input type="number" id="aDiscount" placeholder="e.g. 20" min="0" max="90"/></div>
+          <div class="af"><label>Spine colour (if no photo)</label><input type="color" id="aColor" value="#5c3a1e"/></div>
+          <div class="af af-full">
+  <label>Book Photo</label>
+  <!-- Option A: Upload from device -->
+  <div class="photo-upload-box" style="margin-bottom:10px;">
+    <input type="file" id="photoFileInput" accept="image/*" onchange="handlePhoto(this)"/>
+    <div class="photo-upload-hint">📷 Tap to upload from your device<br/><span style="font-size:.6rem;color:#6a5040;margin-top:3px;display:block">Auto-compressed · JPG or PNG</span></div>
+  </div>
+  <!-- Option B: Paste URL -->
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+    <div style="flex:1;height:1px;background:#3a2f2c;"></div>
+    <span style="color:#8c6f5f;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;">OR PASTE URL</span>
+    <div style="flex:1;height:1px;background:#3a2f2c;"></div>
+  </div>
+  <input type="text" id="aPhotoUrl" placeholder="https://i.imgur.com/abc123.jpg" style="width:100%;padding:8px 11px;border:1.5px solid #3a2f2c;border-radius:4px;background:#1c1613;color:#fff;font-family:'Inter',sans-serif;font-size:.82rem;outline:none;margin-bottom:4px;" oninput="handlePhotoUrl(this.value)"/>
+  <p style="font-size:.7rem;color:#6a5040;margin-bottom:8px;">Tip: Use <strong>imgur.com</strong> (free) — upload → right-click image → Copy image address</p>
+  <div id="photoPreview" style="margin-top:8px;"></div>
+  <p id="compressNote" style="font-size:.72rem;color:#7aaa8a;margin-top:4px;font-family:'DM Mono',monospace;"></p>
+</div>
+          <div class="af af-full ap-btns">
+            <button class="ap-btn ap-btn-primary" onclick="saveBook()">💾 Save Book</button>
+            <button class="ap-btn ap-btn-secondary" onclick="clearForm()">✕ Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tabManage" class="ap-pane">
+      <div id="apBookList" class="ap-book-list"></div>
+    </div>
+
+    <div id="tabSettings" class="ap-pane">
+      <div class="settings-grid">
+        <div class="s-box">
+          <h4>Contact Info</h4>
+          <div class="s-row"><label>Telegram username (without @)</label><input type="text" id="sTg" placeholder="yourusername"/></div>
+          <div class="s-row"><label>Email address</label><input type="text" id="sEmail" placeholder="you@email.com"/></div>
+          <button class="ap-btn ap-btn-primary" style="margin-top:5px" onclick="saveSettings()">💾 Save</button>
+        </div>
+        <div class="s-box">
+          <h4>Change Admin Password</h4>
+          <div class="s-row"><label>Current password</label><input type="password" id="sOld" placeholder="current password"/></div>
+          <div class="s-row"><label>New password</label><input type="password" id="sNew" placeholder="new password (min 4 chars)"/></div>
+          <div class="s-row"><label>Confirm new password</label><input type="password" id="sConf" placeholder="repeat new password"/></div>
+          <button class="ap-btn ap-btn-primary" style="margin-top:5px" onclick="changePass()">🔑 Change Password</button>
+        </div>
+        <div class="s-box" style="grid-column:1/-1">
+          <h4>Google Sheets Connection</h4>
+          <div class="info-box"><strong>ℹ️ How to connect</strong>Paste your Google Apps Script Web App URL. Make sure it ends in <strong>/exec</strong></div>
+          <div class="s-row"><label>Apps Script Web App URL</label><input type="text" id="sSheetUrl" placeholder="https://script.google.com/macros/s/YOUR_ID/exec"/></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:5px;align-items:center">
+            <button class="ap-btn ap-btn-primary" onclick="saveSheetUrl()">🔗 Save URL</button>
+            <button class="ap-btn ap-btn-secondary" onclick="testConnection()">🧪 Test Connection</button>
+          </div>
+        </div>
+        <div class="s-box" style="grid-column:1/-1">
+          <h4>Danger Zone</h4>
+          <p style="color:#8c6f5f;font-size:.78rem;margin-bottom:11px">Clears local cache only. Books in Google Sheet are safe.</p>
+          <button class="ap-btn ap-btn-danger" onclick="clearLocalCache()">🗑️ Clear Local Cache</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════
+//  CONFIG & HELPERS
+// ════════════════════════════════
+const GENRES  = {fiction:'Fiction', nonfiction:'Non-Fiction', academic:'Academic', other:'Other'};
+const RATES   = {UZS:1, USD:0.000079, EUR:0.000073, HUF:0.029};
+const SYMBOLS = {UZS:'UZS', USD:'$', EUR:'€', HUF:'Ft'};
+const DEF_PASS = 'admin123';
+
+let activeCurrency = 'HUF';
+let allBooks       = [];
+let currentFilter  = 'all';
+let currentPhoto   = null;
+
+const ls = (k,v) => v===undefined ? localStorage.getItem(k)||'' : localStorage.setItem(k,String(v));
+const getPass = () => { const p=localStorage.getItem('bc_pass'); return (p&&p.length>=4)?p:DEF_PASS; };
+const getSheetUrl = () => ls('bc_sheetUrl');
+
+function convertPrice(uzs){ return Math.round(parseInt(uzs||0)*RATES[activeCurrency]).toLocaleString(); }
+function sym(){ return SYMBOLS[activeCurrency]; }
+
+// ════════════════════════════════
+//  CURRENCY
+// ════════════════════════════════
+function setCurrency(c,btn){
+  activeCurrency=c;
+  document.querySelectorAll('.curr-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.getElementById('statCurr').textContent=c;
+  renderBooks();
+}
+
+// ════════════════════════════════
+//  JSONP — only method that bypasses CORS from GitHub Pages
+// ════════════════════════════════
+function jsonp(url, timeout){
+  timeout = timeout || 15000;
+  return new Promise((resolve, reject) => {
+    const cb = 'jcb_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+    const script = document.createElement('script');
+    const timer = setTimeout(() => { cleanup(); reject(new Error('Timeout')); }, timeout);
+    window[cb] = (data) => { cleanup(); resolve(data); };
+    function cleanup(){ clearTimeout(timer); delete window[cb]; if(script.parentNode) script.parentNode.removeChild(script); }
+    script.onerror = () => { cleanup(); reject(new Error('Load error')); };
+    const sep = url.includes('?') ? '&' : '?';
+    script.src = url + sep + 'callback=' + cb + '&_=' + Date.now();
+    document.head.appendChild(script);
+  });
+}
+
+// ════════════════════════════════
+//  GOOGLE SHEETS - all via JSONP
+// ════════════════════════════════
+async function fetchBooks(){
+  const cached = localStorage.getItem('bc_cache');
+  if(cached){ try{ allBooks=JSON.parse(cached); updateCount(); renderBooks(); }catch(e){} }
+
+  const url = getSheetUrl();
+  if(!url){ if(!cached){ allBooks=[]; renderBooks(); } return; }
+
+  try{
+    const data = await jsonp(url + '?action=getBooks');
+    if(data && data.books){
+      allBooks = data.books;
+      localStorage.setItem('bc_cache', JSON.stringify(allBooks));
+      updateCount();
+      renderBooks();
+    }
+  }catch(e){
+    console.warn('Sheet unreachable, using cache:', e);
+    if(!cached){ allBooks=[]; renderBooks(); }
+  }
+}
+function updateCount(){ document.getElementById('statCount').textContent = allBooks.filter(b=>!b.sold).length; }
+
+async function pushToSheet(book){
+  const url = getSheetUrl();
+  if(!url) throw new Error('No sheet URL');
+  const action = book.action || (book._isUpdate ? 'update' : 'add');
+  const encoded = encodeURIComponent(JSON.stringify(book));
+  return await jsonp(`${url}?action=${action}&data=${encoded}`);
+}
+
+async function deleteFromSheet(id){
+  const url = getSheetUrl();
+  if(!url) throw new Error('No sheet URL');
+  return await jsonp(`${url}?action=delete&id=${encodeURIComponent(id)}`);
+}
+
+// ════════════════════════════════
+//  PHOTO — upload or URL
+// ════════════════════════════════
+function handlePhoto(input){
+  const file = input.files[0];
+  if(!file) return;
+  document.getElementById('compressNote').textContent='Compressing…';
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const MAX=700;
+      let w=img.width, h=img.height;
+      if(w>MAX){ h=Math.round(h*MAX/w); w=MAX; }
+      const canvas = document.createElement('canvas');
+      canvas.width=w; canvas.height=h;
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      const compressed = canvas.toDataURL('image/jpeg',0.78);
+      const kb = Math.round(compressed.length*0.75/1024);
+      currentPhoto = {data: compressed, type: 'upload'};
+      document.getElementById('aPhotoUrl').value = '';
+      document.getElementById('compressNote').textContent = `✓ Photo ready (${kb} KB)`;
+      document.getElementById('photoPreview').innerHTML =
+        `<div class="photo-thumb"><img src="${compressed}" alt=""/><button class="rm" onclick="removePhoto()">✕</button></div>`;
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+  input.value='';
+}
+
+function handlePhotoUrl(url){
+  if(!url || url.length < 10){ currentPhoto=null; document.getElementById('photoPreview').innerHTML=''; return; }
+  currentPhoto = {data: url, type: 'url'};
+  document.getElementById('photoPreview').innerHTML =
+    `<div class="photo-thumb" style="width:80px;height:100px"><img src="${url}" alt="" onerror="this.parentNode.innerHTML='<span style=color:#f08080;font-size:.65rem>Cannot load</span>'"/></div>`;
+  document.getElementById('compressNote').textContent = '✓ URL set';
+}
+
+function removePhoto(){
+  currentPhoto=null;
+  document.getElementById('photoPreview').innerHTML='';
+  document.getElementById('compressNote').textContent='';
+  document.getElementById('aPhotoUrl').value='';
+  const fi = document.getElementById('photoFileInput');
+  if(fi) fi.value='';
+}
+
+// ════════════════════════════════
+//  STOREFRONT
+// ════════════════════════════════
+function initStorefront(){
+  const tg=ls('bc_tg')||'YOUR_TELEGRAM';
+  const em=ls('bc_email')||'your@email.com';
+  document.getElementById('tgLink').href=`https://t.me/${tg}`;
+  document.getElementById('tgLink').textContent=`@${tg} →`;
+  document.getElementById('emailLink').href=`mailto:${em}`;
+  document.getElementById('emailLink').textContent=em+' →';
+  document.getElementById('bannerTg').href=`https://t.me/${tg}`;
+  fetchBooks();
+}
+
+function jumpToFilter(genre){
+  const btn=document.getElementById('fb-'+genre);
+  if(btn) filterBooks(genre,btn);
+  document.getElementById('books').scrollIntoView({behavior:'smooth'});
+}
+
+function filterBooks(f,btn){
+  currentFilter=f;
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBooks();
+}
+
+function renderBooks(){
+  let list=allBooks.filter(b=>{
+    if(currentFilter==='all') return true;
+    if(currentFilter==='new') return b.condition==='new';
+    if(currentFilter==='used') return b.condition==='used';
+    if(currentFilter==='discount') return parseInt(b.discount||0)>0;
+    return b.genre===currentFilter;
+  });
+
+  const grid=document.getElementById('booksGrid');
+  if(!getSheetUrl() && allBooks.length===0){
+    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🔗</div><p><strong>Not connected yet.</strong><br/>Open admin (⚙️) → Settings → connect Google Sheet.</p></div>`;
+    return;
+  }
+  if(!list.length){
+    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">📭</div><p>No books here yet — check back soon!</p></div>`;
+    return;
+  }
+
+  grid.innerHTML=list.map((b,i)=>{
+    const disc=parseInt(b.discount||0);
+    const orig=parseInt(b.price||0);
+    const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
+    const s=sym();
+    const photoHtml = b.photoUrl && b.photoUrl.length > 10
+  ? `<img src="${b.photoUrl}" alt="${b.title}"/>`
+  : `<div class="no-photo-book" style="background:${b.color||'#5c3a1e'}">${b.title}</div>`;
+    const ribbon=disc>0?`<div class="disc-ribbon">-${disc}% OFF</div>`:'';
+    const priceBlock=disc>0
+      ?`<div class="orig-price">${convertPrice(orig)} ${s}</div><div class="book-price">${convertPrice(fin)} <span>${s}</span></div>`
+      :`<div class="book-price">${convertPrice(fin)} <span>${s}</span></div>`;
+    const action=b.sold?`<span class="sold-lbl">✓ Sold</span>`:`<button class="buy-btn" onclick='openBuyModal(${JSON.stringify(b).replace(/'/g,"&#39;")})'>I want this</button>`;
+    return `<div class="book-card" style="animation:fadeUp .5s ${i*.06}s both">
+      <div class="book-photo">${photoHtml}<span class="badge ${b.condition==='new'?'badge-new':'badge-used'}">${b.condition==='new'?'New':'Pre-loved'}</span>${ribbon}</div>
+      <div class="book-info">
+        <div class="book-genre">${GENRES[b.genre]||b.genre}</div>
+        <div class="book-title">${b.title}</div>
+        <div class="book-author">${b.author}</div>
+        ${b.condNote?`<div class="book-cond">📋 ${b.condNote}</div>`:''}
+        <div class="book-footer"><div>${priceBlock}</div>${action}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openBuyModal(b){
+  const tg=ls('bc_tg')||'YOUR_TELEGRAM';
+  const em=ls('bc_email')||'your@email.com';
+  const disc=parseInt(b.discount||0);
+  const orig=parseInt(b.price||0);
+  const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
+  document.getElementById('mTitle').textContent=b.title;
+  document.getElementById('mMeta').textContent=`${b.author} · ${GENRES[b.genre]||b.genre} · ${convertPrice(fin)} ${sym()}`;
+  const msg=encodeURIComponent(`Hi! I'm interested in "${b.title}" by ${b.author} (${fin.toLocaleString()} HUF). Is it available for pickup?`);
+  document.getElementById('mTg').href=`https://t.me/${tg}?text=${msg}`;
+  document.getElementById('mEmail').href=`mailto:${em}?subject=${encodeURIComponent('Book: '+b.title)}&body=${msg}`;
+  document.getElementById('buyOverlay').classList.add('open');
+}
+function closeBuyModal(e){ if(e.target===document.getElementById('buyOverlay')) document.getElementById('buyOverlay').classList.remove('open'); }
+
+function sendEnquiry(){
+  const name=document.getElementById('fname').value.trim();
+  const contact=document.getElementById('fcontact').value.trim();
+  const books=document.getElementById('fbooks').value.trim();
+  const msg=document.getElementById('fmsg').value.trim();
+  if(!name||!contact||!books){showToast('Fill in name, contact and book title','error');return;}
+  const subj=encodeURIComponent(`Book enquiry from ${name}`);
+  const body=encodeURIComponent(`Name: ${name}\nContact: ${contact}\nBooks: ${books}\n\nMessage: ${msg||'(none)'}`);
+  window.location.href=`mailto:${ls('bc_email')||'your@email.com'}?subject=${subj}&body=${body}`;
+}
+
+// ════════════════════════════════
+//  ADMIN
+// ════════════════════════════════
+function promptAdmin(){
+  const pw=prompt('Enter admin password:');
+  if(pw===null) return;
+  if(pw===getPass()) openAdmin();
+  else showToast('Wrong password','error');
+}
+function openAdmin(){ document.getElementById('adminPanel').classList.add('open'); loadSettingsForm(); renderAdminList(); }
+function closeAdmin(){ document.getElementById('adminPanel').classList.remove('open'); initStorefront(); }
+function switchTab(id,btn){
+  document.querySelectorAll('.ap-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ap-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='tabManage') renderAdminList();
+  if(id==='tabSettings') loadSettingsForm();
+}
+
+async function saveBook(){
+  const id       = document.getElementById('editId').value;
+  const title    = document.getElementById('aTitle').value.trim();
+  const author   = document.getElementById('aAuthor').value.trim();
+  const genre    = document.getElementById('aGenre').value;
+  const condition= document.getElementById('aCondition').value;
+  const condNote = document.getElementById('aCondNote').value.trim();
+  const price    = document.getElementById('aPrice').value.trim();
+  const discount = document.getElementById('aDiscount').value.trim() || '0';
+  const color    = document.getElementById('aColor').value;
+
+  if(!title || !author || !price){
+    showToast('Title, author and price required','error');
+    return;
+  }
+
+  // Determine photo: uploaded base64 or URL, or keep existing
+  let photoUrl = '';
+  if(currentPhoto){
+    photoUrl = currentPhoto.data; // base64 or URL string
+  } else if(id){
+    const existing = allBooks.find(b=>b.id===id);
+    if(existing) photoUrl = existing.photoUrl || '';
+  }
+
+  const book = {
+    id: id || Date.now().toString(),
+    title, author, genre, condition, condNote, price, discount, color,
+    photoUrl,
+    sold: false,
+    added: new Date().toISOString(),
+    _isUpdate: !!id
+  };
+
+  showToast('Saving…');
+
+  const url = getSheetUrl();
+  if(url){
+    try{
+      const result = await pushToSheet(book);
+      if(result && (result.success || result.id)){
+        showToast(id ? 'Book updated ✓' : 'Book added ✓','success');
+      } else {
+        showToast('Saved (sheet: '+(result&&result.error||'ok')+')','success');
+      }
+      // Always update local cache too
+      saveLocally(book, !!id);
+    } catch(e){
+      console.error('Sheet error:', e);
+      showToast('Sheet unreachable — saved locally','error');
+      saveLocally(book, !!id);
+    }
+  } else {
+    saveLocally(book, !!id);
+    showToast(id ? 'Updated locally ✓' : 'Added locally ✓','success');
+  }
+
+  clearForm();
+  await fetchBooks();
+  renderAdminList();
+}
+
+function saveLocally(book,isEdit){
+  let books=JSON.parse(localStorage.getItem('bc_cache')||'[]');
+  if(isEdit){
+    const idx=books.findIndex(b=>b.id===book.id);
+    if(idx>-1) books[idx]=book;
+    else books.unshift(book);
+  } else books.unshift(book);
+  localStorage.setItem('bc_cache',JSON.stringify(books));
+  allBooks=books;
+}
+
+function editBook(id){
+  const b=allBooks.find(b=>b.id===id);
+  if(!b) return;
+  document.getElementById('editId').value=b.id;
+  document.getElementById('aTitle').value=b.title;
+  document.getElementById('aAuthor').value=b.author;
+  document.getElementById('aGenre').value=b.genre;
+  document.getElementById('aCondition').value=b.condition;
+  document.getElementById('aCondNote').value=b.condNote||'';
+  document.getElementById('aPrice').value=b.price;
+  document.getElementById('aDiscount').value=b.discount||0;
+  document.getElementById('aColor').value=b.color||'#5c3a1e';
+
+  // Load existing photo
+  const existingPhoto = b.photoUrl || '';
+  if(existingPhoto && existingPhoto.length > 5){
+    currentPhoto = {data: existingPhoto, type: existingPhoto.startsWith('data:') ? 'upload' : 'url'};
+    document.getElementById('aPhotoUrl').value = existingPhoto.startsWith('data:') ? '' : existingPhoto;
+    document.getElementById('photoPreview').innerHTML =
+      `<div class="photo-thumb" style="width:80px;height:100px"><img src="${existingPhoto}" alt=""/><button class="rm" onclick="removePhoto()">✕</button></div>`;
+    document.getElementById('compressNote').textContent='Existing photo loaded';
+  }
+  document.getElementById('formHeading').textContent='Edit Book';
+  switchTab('tabAdd',document.querySelectorAll('.ap-tab')[0]);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+async function toggleSold(id){
+  const b=allBooks.find(b=>b.id===id);
+  if(!b) return;
+  b.sold = !b.sold;
+  const url=getSheetUrl();
+  if(url){ try{ await pushToSheet({...b, _isUpdate:true}); }catch(e){ console.warn(e); } }
+  saveLocally(b,true);
+  renderAdminList(); renderBooks(); updateCount();
+  showToast(b.sold?'Marked as sold ✓':'Listed again ✓','success');
+}
+
+async function deleteBook(id){
+  if(!confirm('Delete this book? Cannot be undone.')) return;
+  const url=getSheetUrl();
+  if(url){ try{ await deleteFromSheet(id); }catch(e){} }
+  allBooks=allBooks.filter(b=>b.id!==id);
+  localStorage.setItem('bc_cache',JSON.stringify(allBooks));
+  renderAdminList(); renderBooks(); updateCount();
+  showToast('Book deleted','success');
+}
+
+function clearForm(){
+  ['editId','aTitle','aAuthor','aCondNote','aPrice','aDiscount','aPhotoUrl'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  document.getElementById('aGenre').value='fiction';
+  document.getElementById('aCondition').value='new';
+  document.getElementById('aColor').value='#5c3a1e';
+  currentPhoto=null;
+  document.getElementById('photoPreview').innerHTML='';
+  document.getElementById('compressNote').textContent='';
+  const fi=document.getElementById('photoFileInput'); if(fi) fi.value='';
+  document.getElementById('formHeading').textContent='Add a New Book';
+}
+
+function renderAdminList(){
+  const el=document.getElementById('apBookList');
+  if(!allBooks.length){el.innerHTML='<div class="empty"><div class="empty-icon">📭</div><p style="color:#8c6f5f">No books yet — add your first one!</p></div>';return;}
+  el.innerHTML=allBooks.map(b=>{
+    const disc=parseInt(b.discount||0);
+    const orig=parseInt(b.price||0);
+    const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
+    const pStr=disc>0?`${fin.toLocaleString()} HUF <span style="text-decoration:line-through;color:#8c6f5f;font-size:.68rem">${orig.toLocaleString()}</span>`:`${orig.toLocaleString()} HUF`;
+    const isSold=!!b.sold;
+    const thumb = b.photoUrl && b.photoUrl.length > 10 
+  ? `<img src="${b.photoUrl}" alt=""/>` 
+  : '📷';
+    return `<div class="ap-book-row">
+      <div class="ap-thumb">${thumb}</div>
+      <div class="ap-binfo">
+        <strong>${b.title}${isSold?'<span class="sold-tag">Sold</span>':''}${disc>0?`<span class="disc-tag">-${disc}%</span>`:''}</strong>
+        <span>${b.author} · ${GENRES[b.genre]||b.genre} · ${b.condition==='new'?'New':'Pre-loved'}</span>
+      </div>
+      <div class="ap-price">${pStr}</div>
+      <div class="ap-actions">
+        <button class="btn-edit" onclick="editBook('${b.id}')">✏️ Edit</button>
+        <button class="btn-sold-toggle" onclick="toggleSold('${b.id}')">${isSold?'↩ Unlist':'✓ Sold'}</button>
+        <button class="btn-del" onclick="deleteBook('${b.id}')">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// SETTINGS
+function loadSettingsForm(){
+  document.getElementById('sTg').value=ls('bc_tg');
+  document.getElementById('sEmail').value=ls('bc_email');
+  document.getElementById('sSheetUrl').value=ls('bc_sheetUrl');
+}
+function saveSettings(){
+  ls('bc_tg', document.getElementById('sTg').value.trim().replace('@',''));
+  ls('bc_email', document.getElementById('sEmail').value.trim());
+  showToast('Settings saved ✓','success');
+}
+function changePass(){
+  const old=document.getElementById('sOld').value;
+  const n=document.getElementById('sNew').value;
+  const c=document.getElementById('sConf').value;
+  if(old!==getPass()){showToast('Current password wrong','error');return;}
+  if(n.length<4){showToast('Min 4 characters','error');return;}
+  if(n!==c){showToast("Passwords don't match",'error');return;}
+  localStorage.setItem('bc_pass',n);
+  ['sOld','sNew','sConf'].forEach(id=>document.getElementById(id).value='');
+  showToast('Password changed ✓','success');
+}
+function saveSheetUrl(){
+  ls('bc_sheetUrl',document.getElementById('sSheetUrl').value.trim());
+  showToast('URL saved ✓','success');
+}
+async function testConnection(){
+  const url=document.getElementById('sSheetUrl').value.trim();
+  if(!url){showToast('Enter URL first','error');return;}
+  showToast('Testing…');
+  try{
+    const data = await jsonp(url+'?action=getBooks', 10000);
+    const n=(data.books||[]).length;
+    showToast(`✅ Connected — ${n} book${n!==1?'s':''} found`,'success');
+  }catch(e){
+    showToast('❌ Connection failed — check URL','error');
+  }
+}
+function clearLocalCache(){
+  if(!confirm('Clear local cache?'))return;
+  localStorage.removeItem('bc_cache');
+  allBooks=[];renderBooks();renderAdminList();
+  showToast('Cache cleared','success');
+}
+
+// TOAST
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className=`toast ${type} show`;
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// INIT
+initStorefront();
+</script>
+</body>
+</html>
