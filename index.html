@@ -1448,20 +1448,48 @@ function showToast(msg,type=''){
 }
 
 // INIT
+// --- UPDATED INIT SECTION ---
+
+// 1. Make sure your URL is correct here
+const G_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbye4BdIqkyKbyeLcTsqGUpF3dNc7lcG7EjqUmwNr_9upfMjP0Ggonh0ha0In7mlSFZ9Hw/exec'; 
+
 let activeFormat = '';
+
+// This is the function that actually gets the data
+async function initStorefront() {
+  const grid = document.getElementById('bookGrid');
+  if(grid) grid.innerHTML = '<div class="loading-grid"><div class="loading-label">Loading Library...</div></div>';
+
+  try {
+    // Fetch data from Google Sheets
+    const response = await fetch(G_SCRIPT_URL + "?action=getBooks");
+    const data = await response.json();
+
+    if (data && data.books) {
+      allBooks = data.books; // Put the data into the global list
+      
+      // Now update the UI
+      renderBooks();
+      syncStatsBanner();
+      syncIllusCount();
+    }
+  } catch (err) {
+    console.error("Connection Error:", err);
+    if(grid) grid.innerHTML = "<p style='padding:20px; color:red;'>Error: Could not connect to Google Sheets.</p>";
+  }
+}
 
 function filterByFormat(fmt){
   activeFormat = fmt;
-  // update button states
   ['fmtHardcover','fmtPaperback','fmtAll'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.classList.remove('active');
   });
-  if(fmt==='Hardcover') document.getElementById('fmtHardcover').classList.add('active');
-  else if(fmt==='Paperback') document.getElementById('fmtPaperback').classList.add('active');
-  else document.getElementById('fmtAll').classList.add('active');
-  // scroll to books and re-render
-  document.getElementById('books').scrollIntoView({behavior:'smooth'});
+  if(fmt==='Hardcover') document.getElementById('fmtHardcover')?.classList.add('active');
+  else if(fmt==='Paperback') document.getElementById('fmtPaperback')?.classList.add('active');
+  else document.getElementById('fmtAll')?.classList.add('active');
+  
+  document.getElementById('books')?.scrollIntoView({behavior:'smooth'});
   renderBooks();
 }
 
@@ -1483,11 +1511,9 @@ function syncIllusCount(){
   if(el1) el1.textContent = n + ' books';
   if(el2) el2.textContent = n;
 }
-const _origUpdateCount = updateCount;
-updateCount = function(){ _origUpdateCount(); syncIllusCount(); syncStatsBanner(); };
-syncIllusCount();
-syncStatsBanner();
-initStorefront();
+
+// Start everything when the page loads
+window.addEventListener('DOMContentLoaded', initStorefront);
 </script>
 </body>
 </html>
