@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2KV5EXE70B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2KV5EXE70B');
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>p👀rCopy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --night-d:#3a2522;
+  --night:#4a2f2a;
+  --night-l:#6b4640;
+  --bg:#fdf8f3;
+  --white:#ffffff;
+  --gold:#d9b36b;
+  --gold-l:#f0d29a;
+  --terra:#c0624a;
+  --terra-l:#d4785e;
+  --warm1:#f7efe6;
+  --warm2:#eeddd0;
+  --ink:#1a0f07;
+  --muted:#7a6655;
+  --silver:#a09080;
+  --border:#e0d0c0;
+  --shadow:rgba(74,47,42,.12);
+  --red:#c0624a;
+  --green:#5e8c6f;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+.logo-wrap{display:flex;flex-direction:column;gap:1px;}
+.logo-tag{font-family:'Playfair Display',serif;font-size:.62rem;font-style:italic;color:rgba(255,255,255,.48);letter-spacing:.04em;line-height:1;}
+/* ── HEADER ── */
+.logo-text{font-family:'Playfair Display',serif;font-size:1.38rem;display:inline-flex;align-items:center;gap:0;letter-spacing:-.01em;color:var(--white);text-decoration:none;white-space:nowrap;}
+.logo-text .eyes{display:inline-block;animation:blink 3s infinite;font-style:normal;line-height:1;font-size:1.2rem;margin:0 1px;}
+@keyframes blink{0%,90%,100%{transform:scaleY(1);}95%{transform:scaleY(0.15);}}
+header{background:var(--night-d);color:var(--white);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:62px;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,15,40,.4);}
+nav{display:flex;gap:20px;align-items:center;}
+nav a{color:rgba(255,255,255,.72);text-decoration:none;font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;transition:color .2s;}
+nav a:hover{color:var(--gold);}
+.nav-cta{background:var(--terra);color:#fff!important;padding:7px 15px;border-radius:4px;}
+.nav-cta:hover{background:var(--terra-l)!important;}
+.curr-switcher{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.07);border-radius:6px;padding:3px;border:1px solid rgba(255,255,255,.11);}
+.curr-btn{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border:none;border-radius:4px;background:transparent;color:rgba(255,255,255,.5);cursor:pointer;transition:all .2s;}
+.curr-btn.active{background:var(--gold);color:var(--night-d);font-weight:500;}
+.header-search-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .22s;color:rgba(255,255,255,.75);flex-shrink:0;}
+.header-search-btn:hover{background:var(--terra);border-color:var(--terra);color:#fff;transform:scale(1.08);}
+.header-search-btn svg{width:16px;height:16px;}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--night-d) 0%,var(--night) 55%,#8c5e57 100%);color:var(--white);padding:88px 5vw 68px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:70vh;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.035) 1px,transparent 0);background-size:38px 38px;pointer-events:none;}
+.hero::after{content:'';position:absolute;right:-60px;bottom:-60px;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(192,98,74,.13) 0%,transparent 70%);pointer-events:none;}
+.hero-text{animation:fadeUp .8s ease both;position:relative;z-index:1;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.12;margin-bottom:20px;color:var(--white);}
+h1 em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:.97rem;color:rgba(255,255,255,.62);max-width:400px;margin-bottom:36px;line-height:1.8;font-weight:300;}
+.hero-btns{display:flex;gap:11px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:5px;transition:all .22s;cursor:pointer;border:none;font-weight:500;}
+.btn-primary{background:var(--terra);color:#fff;}
+.btn-primary:hover{background:var(--terra-l);transform:translateY(-2px);box-shadow:0 8px 22px rgba(192,98,74,.35);}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.28);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.stats{display:flex;gap:36px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.11);}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.85rem;color:var(--gold);line-height:1;}
+.stat-l{font-family:'DM Mono',monospace;font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;}
+.hero-visual{display:flex;justify-content:center;align-items:center;animation:fadeUp .8s .2s ease both;position:relative;z-index:1;}
+.illus-wrap{position:relative;width:340px;height:340px;}
+
+/* floating cards */
+.illus-card{position:absolute;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 28px rgba(0,0,0,.22);animation:floatCard 4s ease-in-out infinite;}
+.illus-card:nth-child(1){top:18px;left:0;animation-delay:0s;}
+.illus-card:nth-child(2){top:50%;right:0;transform:translateY(-50%);animation-delay:.8s;}
+.illus-card:nth-child(3){bottom:18px;left:20px;animation-delay:1.6s;}
+@keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}
+}
+.illus-card:nth-child(2){animation-name:floatCard2;}
+@keyframes floatCard2{0%,100%{transform:translateY(-50%);}50%{transform:translateY(calc(-50% - 9px));}
+}
+.illus-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.illus-icon.teal{background:rgba(80,200,180,.25);}
+.illus-icon.amber{background:rgba(230,180,60,.25);}
+.illus-icon.rose{background:rgba(220,100,100,.25);}
+.illus-text{}
+.illus-text strong{display:block;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9);}
+.illus-text span{font-size:.72rem;color:rgba(255,255,255,.5);font-weight:300;}
+
+/* centre figure */
+.illus-centre{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.illus-person{width:140px;height:200px;}
+
+/* orbiting dots */
+.illus-orbit{position:absolute;inset:0;animation:spin 18s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.illus-orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold);opacity:.55;}
+.illus-orbit-dot:nth-child(1){top:10px;left:50%;}
+.illus-orbit-dot:nth-child(2){bottom:10px;right:22%;}
+.illus-orbit-dot:nth-child(3){top:40%;left:4px;}
+
+/* counter pill */
+.illus-pill{position:absolute;bottom:30px;right:10px;background:var(--terra);border-radius:20px;padding:7px 14px;display:flex;align-items:center;gap:7px;box-shadow:0 4px 16px rgba(192,98,74,.4);animation:floatCard 3.5s 1.2s ease-in-out infinite;}
+.illus-pill-num{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;font-weight:700;line-height:1;}
+.illus-pill-lbl{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);}
+
+/* ── SECTIONS ── */
+section{padding:72px 5vw;}
+.sec-label{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);max-width:80px;}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.65rem,2.5vw,2.2rem);margin-bottom:10px;line-height:1.25;color:var(--night-d);}
+.sec-sub{color:var(--muted);font-size:.93rem;max-width:440px;margin-bottom:40px;font-weight:300;}
+
+/* ── CATEGORIES ── */
+.cats{background:var(--white);overflow:hidden;}
+.cat-scroll-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;user-select:none;}
+.cat-scroll-wrap::-webkit-scrollbar{display:none;}
+.cat-scroll-wrap.dragging{cursor:grabbing;}
+.cat-grid{display:flex;gap:16px;padding:8px 4px 16px;width:max-content;}
+.cat-card{border:1.5px solid var(--border);border-radius:16px;padding:28px 24px;background:var(--warm1);transition:all .28s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;cursor:pointer;width:240px;flex-shrink:0;opacity:0;transform:translateY(20px);}
+.cat-card.visible{opacity:1;transform:translateY(0);}
+.cat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--terra),var(--gold));opacity:0;transition:opacity .28s;}
+.cat-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 16px 40px var(--shadow);border-color:var(--terra);}
+.cat-card:hover::before{opacity:.07;}
+.cat-card::after{content:'→';position:absolute;bottom:18px;right:18px;font-size:1rem;color:var(--terra);opacity:0;transform:translateX(-6px);transition:all .25s;}
+.cat-card:hover::after{opacity:1;transform:translateX(0);}
+.cat-icon{font-size:2.2rem;margin-bottom:16px;display:block;transition:transform .3s;}
+.cat-card:hover .cat-icon{transform:scale(1.15) rotate(-5deg);}
+.cat-name{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:6px;color:var(--night-d);font-weight:700;}
+.cat-desc{font-size:.82rem;color:var(--muted);line-height:1.6;font-weight:300;}
+.cat-scroll-hint{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);margin-top:6px;display:flex;align-items:center;gap:6px;}
+.cat-scroll-hint::before{content:'';width:20px;height:1px;background:var(--border);}
+
+/* ── SEARCH ── */
+.search-wrap{position:relative;max-width:420px;margin-bottom:22px;}
+.search-input{width:100%;padding:11px 16px 11px 42px;border:1.5px solid var(--border);border-radius:30px;background:var(--white);color:var(--ink);font-family:'Lora',serif;font-size:.92rem;outline:none;transition:border-color .25s,box-shadow .25s;}
+.search-input:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(192,98,74,.1);}
+.search-input::placeholder{color:var(--silver);}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--silver);pointer-events:none;font-size:1rem;}
+.search-clear{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--silver);cursor:pointer;font-size:1rem;display:none;line-height:1;}
+.search-clear.visible{display:block;}
+
+/* ── BOOKS ── */
+#books{background:var(--bg);}
+.filter-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:30px;}
+.fb{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border:1.5px solid var(--border);border-radius:20px;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;}
+.fb:hover,.fb.active{background:var(--night-d);color:var(--white);border-color:var(--night-d);}
+.fb-sale.active{background:var(--terra);border-color:var(--terra);}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;}
+.book-card{background:var(--white);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:all .28s;display:flex;flex-direction:column;position:relative;}
+.book-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px var(--shadow);border-color:var(--warm2);}
+.book-photo{height:195px;overflow:hidden;background:var(--warm1);display:flex;align-items:center;justify-content:center;position:relative;}
+.book-photo img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.book-card:hover .book-photo img{transform:scale(1.05);}
+.no-photo-book{width:88px;height:128px;border-radius:2px 8px 8px 2px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.58rem;writing-mode:vertical-rl;color:rgba(255,255,255,.92);box-shadow:5px 5px 16px rgba(0,0,0,.24);padding:8px;text-align:center;}
+.badge{position:absolute;top:10px;right:10px;font-family:'DM Mono',monospace;font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.badge-new{background:var(--night-d);color:#fff;}
+.badge-used{background:#7a4a2a;color:#fff;}
+.disc-ribbon{position:absolute;top:10px;left:10px;background:var(--terra);color:#fff;font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:3px;}
+.book-info{padding:16px;flex:1;display:flex;flex-direction:column;}
+.book-genre{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:5px;}
+.book-title{font-family:'Playfair Display',serif;font-size:.93rem;line-height:1.3;margin-bottom:2px;color:var(--night-d);}
+.book-author{font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:7px;}
+.book-cond{font-size:.72rem;color:var(--silver);margin-bottom:11px;font-weight:300;}
+.detail-item{background:var(--warm1);border:1px solid var(--border);border-radius:6px;padding:8px 10px;}
+.detail-item .di-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.detail-item .di-val{font-size:.84rem;color:var(--night-d);font-weight:500;}
+.book-footer{display:flex;align-items:flex-end;justify-content:space-between;margin-top:auto;gap:5px;}
+.details-btn{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 10px;background:transparent;color:var(--terra);border:1.5px solid var(--terra);border-radius:4px;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.details-btn:hover{background:var(--terra);color:#fff;}
+.orig-price{font-size:.67rem;color:var(--silver);text-decoration:line-through;font-family:'DM Mono',monospace;line-height:1;}
+.book-price{font-family:'Playfair Display',serif;font-size:1.08rem;color:var(--night-d);font-weight:700;line-height:1.1;}
+.book-price span{font-size:.63rem;font-weight:400;color:var(--muted);font-family:'DM Mono',monospace;}
+.buy-btn{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 12px;background:var(--terra);color:#fff;border:none;border-radius:4px;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.buy-btn:hover{background:var(--terra-l);}
+.sold-lbl{font-family:'DM Mono',monospace;font-size:.57rem;letter-spacing:.08em;text-transform:uppercase;color:var(--silver);}
+.loading-grid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:60px 20px;grid-column:1/-1;}
+.loading-bar-wrap{width:220px;background:var(--border);border-radius:20px;height:4px;overflow:hidden;}
+.loading-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--terra),var(--gold));border-radius:20px;transition:width .3s ease;}
+.loading-pct{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;color:var(--terra);}
+.loading-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+
+/* ── STATS BANNER ── */
+.stats-banner{background:linear-gradient(135deg,var(--night-d) 0%,#4a2f2a 100%);padding:48px 5vw 0;}
+.stats-banner-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;}
+.sb-item{display:flex;flex-direction:column;align-items:center;padding:20px 32px;cursor:pointer;position:relative;transition:all .22s;border-radius:10px;}
+.sb-item:hover{background:rgba(255,255,255,.06);}
+.sb-item:hover .sb-num{color:var(--gold-l);transform:scale(1.12);}
+.sb-num{font-family:'Playfair Display',serif;font-size:2.8rem;color:var(--gold);line-height:1;font-weight:700;transition:all .3s;}
+.sb-label{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:6px;}
+.sb-sub{font-size:.72rem;color:rgba(255,255,255,.38);margin-top:3px;font-weight:300;}
+.sb-divider{width:1px;height:60px;background:rgba(255,255,255,.12);flex-shrink:0;}
+.sb-footer{border-top:1px solid rgba(255,255,255,.1);margin-top:32px;padding:16px 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;}
+.sb-footer-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);}
+.sb-format-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.sb-format-btn{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border-radius:20px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:rgba(255,255,255,.7);cursor:pointer;transition:all .22s;}
+.sb-format-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.1);}
+.sb-format-btn.active{background:var(--gold);border-color:var(--gold);color:var(--night-d);font-weight:500;}
+.sb-format-clear{border-color:rgba(255,255,255,.1);color:rgba(255,255,255,.35);}
+.sb-format-clear:hover{border-color:var(--terra);color:var(--terra);background:rgba(192,98,74,.1);}
+@media(max-width:680px){
+  .sb-divider{display:none;}
+  .stats-banner-inner{gap:4px;}
+  .sb-item{padding:14px 18px;}
+  .sb-num{font-size:2rem;}
+}
+
+/* ── CONTACT ── */
+#contact{background:var(--white);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;}
+.c-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--warm1);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;transition:all .2s;}
+.c-item:hover{box-shadow:0 6px 18px var(--shadow);transform:translateY(-2px);}
+.c-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
+.c-details h3{font-family:'Playfair Display',serif;font-size:.97rem;margin-bottom:2px;color:var(--night-d);}
+.c-details p{font-size:.82rem;color:var(--muted);margin-bottom:7px;font-weight:300;}
+.c-link{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.08em;color:var(--terra);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .2s;}
+.c-link:hover{border-color:var(--terra);}
+.map-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-top:8px;}
+.map-wrap iframe{display:block;width:100%;height:210px;}
+.c-form{background:var(--warm1);border:1px solid var(--border);border-radius:12px;padding:26px;}
+.c-form h3{font-family:'Playfair Display',serif;font-size:1.12rem;margin-bottom:5px;color:var(--night-d);}
+.c-form p{font-size:.82rem;color:var(--muted);margin-bottom:18px;font-weight:300;}
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-family:'DM Mono',monospace;font-size:.61rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.fg input,.fg textarea{width:100%;padding:9px 12px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);color:var(--ink);font-family:'Inter',sans-serif;font-size:.86rem;outline:none;transition:border-color .2s;}
+.fg input:focus,.fg textarea:focus{border-color:var(--terra);}
+.fg textarea{resize:vertical;min-height:84px;}
+.f-submit{width:100%;padding:11px;background:var(--terra);color:#fff;font-family:'DM Mono',monospace;font-size:.69rem;letter-spacing:.12em;text-transform:uppercase;border:none;border-radius:6px;cursor:pointer;transition:all .22s;margin-top:4px;}
+.f-submit:hover{background:var(--terra-l);}
+
+/* ── FOOTER ── */
+footer{background:var(--night-d);color:rgba(255,255,255,.46);padding:32px 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+footer p{font-size:.75rem;}
+.f-links{display:flex;gap:16px;}
+.f-links a{color:rgba(255,255,255,.36);text-decoration:none;font-family:'DM Mono',monospace;font-size:.61rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+.f-links a:hover{color:var(--gold);}
+.f-social{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.f-social-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.f-social-icons{display:flex;gap:10px;align-items:center;}
+.f-social-icons a{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .22s;flex-shrink:0;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.25);}
+.f-social-icons a:hover{background:#000;border-color:#000;transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.5);}
+.f-social-icons svg{width:19px;height:19px;fill:#fff;}
+
+/* ── DETAILS MODAL ── */
+.details-modal{background:var(--white);border-radius:14px;width:94%;max-width:720px;max-height:90vh;position:relative;animation:popIn .28s ease;border-top:4px solid var(--terra);display:grid;grid-template-columns:240px 1fr;overflow:hidden;}
+.details-left{padding:22px 18px;border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;background:var(--warm1);}
+.details-photo-wrap{width:100%;aspect-ratio:3/4;border-radius:8px;overflow:hidden;background:var(--warm2);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.details-photo-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .3s;}
+.details-photo-wrap:hover img{transform:scale(1.04);}
+.details-right{padding:22px 20px;overflow-y:auto;max-height:50vh;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+.details-right h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin:6px 0 2px;color:var(--night-d);}
+.details-author{font-size:.83rem;color:var(--muted);font-style:italic;margin-bottom:14px;}
+.details-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px;}
+.details-desc{font-size:.86rem;color:var(--ink);line-height:1.75;font-weight:300;overflow:hidden;transition:max-height .4s ease;}
+.details-desc.collapsed{max-height:72px;}
+.details-desc.expanded{max-height:600px;}
+.desc-toggle{background:none;border:none;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);cursor:pointer;padding:4px 0;margin-top:2px;display:block;}
+.desc-toggle:hover{text-decoration:underline;}
+@media(max-width:600px){
+  .details-modal{grid-template-columns:1fr;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .details-left{border-right:none;border-bottom:1px solid var(--border);flex-direction:row;gap:16px;align-items:flex-start;padding:16px;}
+  .details-photo-wrap{width:100px;flex-shrink:0;aspect-ratio:3/4;}
+  .details-right{max-height:none;overflow-y:visible;}
+}
+
+/* ── BUY MODAL ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(10,5,0,.72);z-index:600;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.overlay.open{display:flex;}
+body.modal-open{overflow:hidden;}
+.modal{background:var(--white);border-radius:14px;padding:34px;max-width:400px;width:92%;position:relative;animation:popIn .28s ease;border-top:4px solid var(--terra);}
+.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--silver);}
+.modal h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:4px;color:var(--night-d);}
+.modal .meta{color:var(--muted);font-size:.82rem;font-style:italic;margin-bottom:22px;font-weight:300;}
+.m-opts{display:flex;flex-direction:column;gap:10px;}
+.m-opt{display:flex;align-items:center;gap:13px;padding:13px 15px;border:1.5px solid var(--border);border-radius:8px;text-decoration:none;color:var(--ink);transition:all .22s;}
+.m-opt:hover{border-color:var(--terra);background:rgba(192,98,74,.05);transform:translateX(4px);}
+.m-opt-icon{font-size:1.3rem;}
+.m-opt-text strong{display:block;font-family:'Playfair Display',serif;font-size:.92rem;color:var(--night-d);}
+.m-opt-text span{font-size:.75rem;color:var(--muted);font-weight:300;}
+
+/* ── ADMIN ── */
+#adminBtn{position:fixed;bottom:20px;right:20px;background:var(--night-d);color:var(--white);border:none;border-radius:50%;width:46px;height:46px;font-size:1.1rem;cursor:pointer;z-index:400;box-shadow:0 4px 14px rgba(0,15,40,.35);transition:all .2s;opacity:.4;}
+#adminBtn:hover{opacity:1;transform:scale(1.1);}
+#adminPanel{display:none;position:fixed;inset:0;background:#1c1613;z-index:700;overflow-y:auto;}
+#adminPanel.open{display:block;}
+.ap-header{background:#15100e;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #3a2f2c;position:sticky;top:0;z-index:10;}
+.ap-header h2{font-family:'Playfair Display',serif;color:var(--white);font-size:1.1rem;margin:0;}
+.ap-close{background:none;border:1px solid var(--gold);color:var(--gold);font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:6px 13px;border-radius:3px;transition:all .2s;}
+.ap-close:hover{background:var(--gold);color:var(--night-d);}
+.ap-body{padding:24px;max-width:900px;margin:0 auto;}
+.ap-tabs{display:flex;gap:2px;margin-bottom:22px;border-bottom:1px solid #3a2f2c;}
+.ap-tab{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:9px 15px;background:none;border:none;color:#8c6f5f;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s;}
+.ap-tab.active,.ap-tab:hover{color:var(--gold);}
+.ap-tab.active{border-bottom-color:var(--gold);}
+.ap-pane{display:none;}
+.ap-pane.active{display:block;}
+.ap-form{background:#2a211f;border:1px solid #3a2f2c;border-radius:8px;padding:22px;}
+.ap-form h3{font-family:'Playfair Display',serif;color:var(--white);font-size:.98rem;margin-bottom:14px;}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.af{margin-bottom:0;}
+.af label{display:block;font-family:'DM Mono',monospace;font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:#8c6f5f;margin-bottom:4px;}
+.af input,.af textarea,.af select{width:100%;padding:8px 11px;border:1.5px solid #3a2f2c;border-radius:4px;background:#1c1613;color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;}
+.af input:focus,.af textarea:focus,.af select:focus{border-color:var(--gold);}
+.photo-upload-box{border:2px dashed #3a2f2c;border-radius:8px;padding:20px;text-align:center;position:relative;transition:border-color .2s;cursor:pointer;}
+.photo-upload-box:hover{border-color:var(--gold);}
+.photo-upload-box input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.photo-upload-hint{color:#8c6f5f;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.08em;pointer-events:none;}
+.photo-preview-grid{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.photo-thumb{position:relative;width:66px;height:86px;border-radius:4px;overflow:hidden;flex-shrink:0;}
+.photo-thumb img{width:100%;height:100%;object-fit:cover;}
+.photo-thumb .rm{position:absolute;top:2px;right:2px;background:rgba(180,40,30,.9);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:.65rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
+.ap-btns{display:flex;gap:8px;margin-top:14px;grid-column:1/-1;flex-wrap:wrap;}
+.ap-btn{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:9px 17px;border:none;border-radius:3px;cursor:pointer;transition:all .2s;}
+.ap-btn-primary{background:var(--gold);color:var(--night-d);}
+.ap-btn-primary:hover{background:var(--gold-l);}
+.ap-btn-secondary{background:#3a2f2c;color:var(--white);}
+.ap-btn-secondary:hover{background:#4a3f3c;}
+.ap-btn-danger{background:#3a1a1a;color:#f08080;}
+.ap-btn-danger:hover{background:#4a2a2a;}
+.ap-book-list{display:flex;flex-direction:column;gap:9px;margin-top:4px;}
+.ap-book-row{background:#2a211f;border:1px solid #3a2f2c;border-radius:6px;padding:11px 14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.ap-thumb{width:40px;height:54px;border-radius:3px;overflow:hidden;flex-shrink:0;background:#3a2f2c;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#8c6f5f;}
+.ap-thumb img{width:100%;height:100%;object-fit:cover;}
+.ap-binfo{flex:1;min-width:140px;}
+.ap-binfo strong{display:block;color:var(--white);font-family:'Playfair Display',serif;font-size:.86rem;}
+.ap-binfo span{font-size:.71rem;color:#8c6f5f;}
+.sold-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;background:#0a2a0a;color:#7ecf80;border-radius:2px;margin-left:5px;vertical-align:middle;}
+.disc-tag{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;background:#3a1a0a;color:#f0a070;border-radius:2px;margin-left:4px;vertical-align:middle;}
+.ap-price{font-family:'DM Mono',monospace;color:var(--gold);font-size:.76rem;flex-shrink:0;}
+.ap-actions{display:flex;gap:5px;flex-shrink:0;flex-wrap:wrap;}
+.ap-actions button{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border:none;border-radius:3px;cursor:pointer;transition:background .2s;}
+.btn-edit{background:#3a2f2c;color:var(--white);}
+.btn-edit:hover{background:#4a3f3c;}
+.btn-sold-toggle{background:#0a2a0a;color:#7ecf80;}
+.btn-sold-toggle:hover{background:#1a3a1a;}
+.btn-del{background:#3a1a1a;color:#f08080;}
+.btn-del:hover{background:#4a2a2a;}
+.settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.s-box{background:#2a211f;border:1px solid #3a2f2c;border-radius:8px;padding:18px;}
+.s-box h4{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#8c6f5f;margin-bottom:13px;}
+.s-row{margin-bottom:11px;}
+.s-row label{display:block;font-size:.75rem;color:#8c6f5f;margin-bottom:4px;}
+.s-row input{width:100%;padding:8px 11px;border:1.5px solid #3a2f2c;border-radius:4px;background:#1c1613;color:var(--white);font-family:'Inter',sans-serif;font-size:.85rem;outline:none;transition:border-color .2s;}
+.s-row input:focus{border-color:var(--gold);}
+.info-box{background:#1c1613;border:1px solid #4a3f3c;border-radius:6px;padding:13px 15px;margin-bottom:13px;font-size:.78rem;color:#c9a88a;line-height:1.6;}
+.toast{position:fixed;bottom:72px;right:18px;background:var(--night-d);color:var(--white);font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 15px;border-radius:6px;z-index:900;transform:translateY(14px);opacity:0;transition:all .3s;pointer-events:none;max-width:260px;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.success{background:var(--green);}
+.toast.error{background:var(--red);}
+.empty{text-align:center;padding:46px 20px;color:var(--muted);}
+.empty-icon{font-size:2.5rem;margin-bottom:12px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding-top:46px;min-height:auto;}
+  .hero-visual{display:none;}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  .contact-grid{grid-template-columns:1fr;}
+  nav{display:none;}
+  .ap-grid{grid-template-columns:1fr;}
+  .settings-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo-wrap" id="logoWrap">
+    <a class="logo-text" href="#">p<em class="eyes">👀</em>rCopy</a>
+    <span class="logo-tag">Broke? We got books.</span>
+  </div>
+  <nav>
+    <a href="#books">Browse</a>
+    <a href="#categories">Categories</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Buy a Book</a>
+  <button class="header-search-btn" onclick="document.getElementById('searchInput').focus();document.getElementById('books').scrollIntoView({behavior:'smooth'});" title="Search books">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  </button>
+  </nav>
+ 
+  <div class="curr-switcher">
+    <button class="curr-btn" onclick="setCurrency('UZS',this)">UZS</button>
+    <button class="curr-btn" onclick="setCurrency('USD',this)">USD</button>
+    <button class="curr-btn" onclick="setCurrency('EUR',this)">EUR</button>
+    <button class="curr-btn active" onclick="setCurrency('HUF',this)">HUF</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Curated · Affordable · Loved</div>
+    <h1>Books that deserve a <em>new home</em></h1>
+    <p class="hero-sub">A personal collection of fiction, non-fiction, and academic books — hand-picked and sold with care. New and pre-loved copies available.</p>
+    <div class="hero-btns">
+      <a href="#books" class="btn btn-primary">📖 Browse Books</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="stats">
+      <div><div class="stat-n" id="statCount">—</div><div class="stat-l">Books available</div></div>
+      <div><div class="stat-n">3</div><div class="stat-l">Genres</div></div>
+      <div><div class="stat-n" id="statCurr">HUF</div><div class="stat-l">Currency</div></div>
+    </div>
+  </div>
+<div class="hero-visual">
+    <div class="illus-wrap">
+
+      <!-- orbiting dots -->
+      <div class="illus-orbit">
+        <div class="illus-orbit-dot"></div>
+        <div class="illus-orbit-dot"></div>
+        <div class="illus-orbit-dot"></div>
+      </div>
+
+      <!-- floating info cards -->
+      <div class="illus-card">
+        <div class="illus-icon teal">📚</div>
+        <div class="illus-text">
+          <strong id="illusCount">— books</strong>
+          <span>in the collection</span>
+        </div>
+      </div>
+
+      <div class="illus-card">
+        <div class="illus-icon amber">🏷️</div>
+        <div class="illus-text">
+          <strong>Best prices</strong>
+          <span>curated for you</span>
+        </div>
+      </div>
+
+      <div class="illus-card">
+        <div class="illus-icon rose">📍</div>
+        <div class="illus-text">
+          <strong>Blaha Lujza tér</strong>
+          <span>pickup · Budapest</span>
+        </div>
+      </div>
+
+      <!-- centre SVG illustration -->
+      <div class="illus-centre">
+        <svg class="illus-person" viewBox="0 0 140 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- desk -->
+          <rect x="10" y="155" width="120" height="8" rx="4" fill="rgba(255,255,255,.15)"/>
+          <rect x="20" y="163" width="8" height="30" rx="4" fill="rgba(255,255,255,.1)"/>
+          <rect x="112" y="163" width="8" height="30" rx="4" fill="rgba(255,255,255,.1)"/>
+          <!-- laptop -->
+          <rect x="38" y="130" width="64" height="40" rx="5" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+          <rect x="44" y="136" width="52" height="28" rx="3" fill="rgba(80,160,200,.25)"/>
+          <!-- screen lines -->
+          <rect x="48" y="140" width="24" height="3" rx="1.5" fill="rgba(255,255,255,.5)"/>
+          <rect x="48" y="146" width="16" height="3" rx="1.5" fill="rgba(255,255,255,.3)"/>
+          <rect x="48" y="152" width="20" height="3" rx="1.5" fill="rgba(255,255,255,.3)"/>
+          <!-- screen chart -->
+          <polyline points="76,158 82,148 88,153 94,142" stroke="rgba(80,220,180,.8)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- body -->
+          <rect x="52" y="90" width="36" height="44" rx="14" fill="rgba(192,98,74,.75)"/>
+          <!-- arm reaching -->
+          <path d="M88 105 Q108 98 112 88" stroke="rgba(192,98,74,.75)" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <!-- hand -->
+          <circle cx="113" cy="86" r="6" fill="rgba(230,180,140,.9)"/>
+          <!-- head -->
+          <circle cx="70" cy="76" r="18" fill="rgba(230,180,140,.9)"/>
+          <!-- hair -->
+          <path d="M52 72 Q54 54 70 52 Q86 54 88 72 Q82 60 70 60 Q58 60 52 72Z" fill="rgba(180,100,60,.8)"/>
+          <!-- book stacks on desk -->
+          <rect x="15" y="138" width="18" height="5" rx="2" fill="rgba(192,98,74,.6)"/>
+          <rect x="15" y="132" width="18" height="5" rx="2" fill="rgba(201,168,76,.6)"/>
+          <rect x="15" y="126" width="18" height="5" rx="2" fill="rgba(140,94,87,.6)"/>
+        </svg>
+      </div>
+
+      <!-- animated book count pill -->
+      <div class="illus-pill">
+        <div class="illus-pill-num" id="illusPillNum">—</div>
+        <div class="illus-pill-lbl">books<br/>available</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section class="cats" id="categories">
+  <div class="sec-label">What's available</div>
+  <h2>Browse by Category</h2>
+  <p class="sec-sub">Click a category — or drag to explore.</p>
+  <div class="cat-scroll-wrap" id="catScroll">
+    <div class="cat-grid">
+      <div class="cat-card" onclick="jumpToFilter('fiction')">
+        <span class="cat-icon">🎭</span>
+        <div class="cat-name">Fiction</div>
+        <div class="cat-desc">Classics, contemporary, thrillers, and world literature.</div>
+      </div>
+      <div class="cat-card" onclick="jumpToFilter('nonfiction')">
+        <span class="cat-icon">🧠</span>
+        <div class="cat-name">Non-Fiction</div>
+        <div class="cat-desc">Mindset, productivity, business, and personal development.</div>
+      </div>
+      <div class="cat-card" onclick="jumpToFilter('academic')">
+        <span class="cat-icon">🎓</span>
+        <div class="cat-name">Academic</div>
+        <div class="cat-desc">University-level books without the bookstore price tag.</div>
+      </div>
+      <div class="cat-card" onclick="jumpToFilter('new')">
+        <span class="cat-icon">✨</span>
+        <div class="cat-name">New Copies</div>
+        <div class="cat-desc">Brand new books, never opened, ready for their first reader.</div>
+      </div>
+      <div class="cat-card" onclick="jumpToFilter('used')">
+        <span class="cat-icon">📖</span>
+        <div class="cat-name">Pre-loved</div>
+        <div class="cat-desc">Second-hand books with character — same knowledge, lower price.</div>
+      </div>
+      <div class="cat-card" onclick="jumpToFilter('discount')">
+        <span class="cat-icon">🏷️</span>
+        <div class="cat-name">On Sale</div>
+        <div class="cat-desc">Discounted books — great deals that won't last long.</div>
+      </div>
+    </div>
+  </div>
+  <div class="cat-scroll-hint">scroll to explore more</div>
+</section>
+
+<section id="books">
+  <div class="sec-label">The collection</div>
+  <h2>Available Books</h2>
+  <p class="sec-sub">All books are ready to go — contact me to arrange pickup.</p>
+<div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="searchInput" type="text" placeholder="Search by title or author…" oninput="onSearch(this.value)"/>
+    <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+  </div>
+  <div class="filter-bar">
+    <button class="fb active" onclick="filterBooks('all',this)">All</button>
+    <button class="fb" id="fb-fiction" onclick="filterBooks('fiction',this)">Fiction</button>
+    <button class="fb" id="fb-nonfiction" onclick="filterBooks('nonfiction',this)">Non-Fiction</button>
+    <button class="fb" id="fb-academic" onclick="filterBooks('academic',this)">Academic</button>
+    <button class="fb" onclick="filterBooks('new',this)">New copies</button>
+    <button class="fb" onclick="filterBooks('used',this)">Pre-loved</button>
+    <button class="fb fb-sale" onclick="filterBooks('discount',this)">🏷️ On Sale</button>
+  </div>
+ <div class="books-grid" id="booksGrid">
+    <div class="loading-grid" id="loadingGrid">
+      <div class="loading-bar-wrap"><div class="loading-bar-fill" id="loadingBar"></div></div>
+      <div class="loading-pct" id="loadingPct">0%</div>
+      <div class="loading-label">Finding your books…</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-banner">
+  <div class="stats-banner-inner">
+    <div class="sb-item" onclick="jumpToFilter('fiction', document.querySelector('[onclick*=\'fiction\']'))">
+      <div class="sb-num" id="sbFiction">—</div>
+      <div class="sb-label">Fiction</div>
+      <div class="sb-sub">novels &amp; classics</div>
+    </div>
+    <div class="sb-divider"></div>
+    <div class="sb-item" onclick="jumpToFilter('nonfiction', document.querySelector('[onclick*=\'nonfiction\']'))">
+      <div class="sb-num" id="sbNonfiction">—</div>
+      <div class="sb-label">Non-Fiction</div>
+      <div class="sb-sub">self-help &amp; business</div>
+    </div>
+    <div class="sb-divider"></div>
+    <div class="sb-item" onclick="jumpToFilter('academic', document.querySelector('[onclick*=\'academic\']'))">
+      <div class="sb-num" id="sbAcademic">—</div>
+      <div class="sb-label">Academic</div>
+      <div class="sb-sub">textbooks &amp; study</div>
+    </div>
+    <div class="sb-divider"></div>
+    <div class="sb-item" onclick="jumpToFilter('new', document.querySelector('[onclick*=\'new\']'))">
+      <div class="sb-num" id="sbNew">—</div>
+      <div class="sb-label">New Copies</div>
+      <div class="sb-sub">never opened</div>
+    </div>
+    <div class="sb-divider"></div>
+    <div class="sb-item" onclick="jumpToFilter('discount', document.querySelector('[onclick*=\'discount\']'))">
+      <div class="sb-num" id="sbDiscount">—</div>
+      <div class="sb-label">On Sale</div>
+      <div class="sb-sub">discounted now</div>
+    </div>
+  </div>
+  <div class="sb-footer">
+    <span class="sb-footer-label">Browse by format</span>
+    <div class="sb-format-btns">
+      <button class="sb-format-btn" id="fmtHardcover" onclick="filterByFormat('Hardcover')">📕 Hardcover</button>
+      <button class="sb-format-btn" id="fmtPaperback" onclick="filterByFormat('Paperback')">📗 Paperback</button>
+      <button class="sb-format-btn sb-format-clear" id="fmtAll" onclick="filterByFormat('')">✕ All formats</button>
+    </div>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="sec-label">Come pick it up</div>
+  <h2>Get in Touch</h2>
+  <p class="sec-sub">Found something you like? Reach out — pickup only at Blaha Lujza tér, Budapest.</p>
+  <div class="contact-grid">
+    <div>
+      <div class="c-item"><div class="c-icon">✈️</div><div class="c-details"><h3>Telegram</h3><p>Fastest way to reach me. Send the book title and I'll reply quickly.</p><a id="tgLink" href="#" class="c-link" target="_blank">Open Telegram →</a></div></div>
+      <div class="c-item"><div class="c-icon">✉️</div><div class="c-details"><h3>Email</h3><p>Prefer email? Write me anytime.</p><a id="emailLink" href="#" class="c-link">Send Email →</a></div></div>
+      <div class="c-item">
+        <div class="c-icon">📍</div>
+        <div class="c-details">
+          <h3>Pickup Only</h3>
+          <p><strong>Blaha Lujza tér, Budapest 1085</strong> — cash on pickup.</p>
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1347.8274246755452!2d19.068914620283707!3d47.49663684426092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc6767b07d9b%3A0x7be2e24544320049!2sBudapest%2C%20Blaha%20Lujza%20t%C3%A9r%2C%201085!5e0!3m2!1sen!2shu!4v1774790532997!5m2!1sen!2shu" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-form">
+      <h3>Send an enquiry</h3>
+      <p>Tell me which book you want and I'll confirm pickup details within 24 hours.</p>
+      <div class="fg"><label>Your name</label><input type="text" id="fname" placeholder="e.g. Dilnoza"/></div>
+      <div class="fg"><label>Contact (Telegram or Email)</label><input type="text" id="fcontact" placeholder="@telegram or email@example.com"/></div>
+      <div class="fg"><label>Which book(s)?</label><input type="text" id="fbooks" placeholder="Book title(s)"/></div>
+      <div class="fg"><label>Message (optional)</label><textarea id="fmsg" placeholder="Preferred time, questions, etc."></textarea></div>
+      <button class="f-submit" onclick="sendEnquiry()">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <a class="logo-text" href="#" style="font-size:1.08rem;">p<em class="eyes">👀</em>rCopy</a>
+    <p style="margin-top:4px">Pre-loved books · Blaha Lujza tér, Budapest</p>
+  </div>
+  <div class="f-social">
+    <p class="f-social-label">Find us on</p>
+    <div class="f-social-icons">
+      <a href="https://t.me/poorcopy" target="_blank" title="Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+      </a>
+      <a href="https://instagram.com/poorcopycom" target="_blank" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://tiktok.com/@poorcopy" target="_blank" title="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="f-links"><a href="#books">Books</a><a href="#categories">Categories</a><a href="#contact">Contact</a></div>
+  <p>© 2026 p👀rCopy</p>
+</footer>
+
+<!-- DETAILS MODAL -->
+<div class="overlay" id="detailsOverlay" onclick="closeDetailsModal(event)">
+  <div class="details-modal">
+    <button class="modal-close" onclick="document.getElementById('detailsOverlay').classList.remove('open');document.body.classList.remove('modal-open')">✕</button>
+    <!-- LEFT: photo -->
+    <div class="details-left">
+      <div id="detailsPhoto" class="details-photo-wrap"></div>
+      <div id="detailsPrice" style="margin-top:14px;text-align:center;"></div>
+      <div class="m-opts" style="margin-top:12px;">
+        <a href="#" id="detailsTg" class="m-opt" target="_blank">
+          <span class="m-opt-icon">✈️</span>
+          <span class="m-opt-text"><strong>Telegram</strong><span>Reply within hours</span></span>
+        </a>
+        <a href="#" id="detailsEmail" class="m-opt">
+          <span class="m-opt-icon">✉️</span>
+          <span class="m-opt-text"><strong>Email</strong><span>Confirm within 24h</span></span>
+        </a>
+      </div>
+    </div>
+    <!-- RIGHT: scrollable info -->
+    <div class="details-right">
+      <div class="book-genre" id="detailsGenre"></div>
+      <h3 id="detailsTitle"></h3>
+      <p class="details-author" id="detailsAuthor"></p>
+      <div id="detailsMeta" class="details-meta-grid"></div>
+      <!-- collapsible description -->
+      <div class="details-desc-wrap">
+        <p id="detailsDesc" class="details-desc collapsed"></p>
+        <button id="descToggle" class="desc-toggle" onclick="toggleDesc()">Show more ▾</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUY MODAL -->
+<div class="overlay" id="buyOverlay" onclick="closeBuyModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('buyOverlay').classList.remove('open')">✕</button>
+    <h3 id="mTitle"></h3>
+    <p class="meta" id="mMeta"></p>
+    <div class="m-opts">
+      <a href="#" id="mTg" class="m-opt" target="_blank">
+        <span class="m-opt-icon">✈️</span>
+        <span class="m-opt-text"><strong>Message on Telegram</strong><span>Fastest — usually reply within hours</span></span>
+      </a>
+      <a href="#" id="mEmail" class="m-opt">
+        <span class="m-opt-icon">✉️</span>
+        <span class="m-opt-text"><strong>Send an Email</strong><span>I'll confirm pickup within 24h</span></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN BUTTON -->
+<!-- ADMIN — hidden, triggered by triple-tap logo or keyboard shortcut -->
+<button id="adminBtn" title="Admin" onclick="promptAdmin()" style="display:none">⚙️</button>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+  <div class="ap-header">
+    <h2>⚙️ p👀rCopy Admin</h2>
+    <button class="ap-close" onclick="closeAdmin()">✕ Back to Site</button>
+  </div>
+  <div class="ap-body">
+    <div class="ap-tabs">
+      <button class="ap-tab active" onclick="switchTab('tabAdd',this)">➕ Add / Edit</button>
+      <button class="ap-tab" onclick="switchTab('tabManage',this)">📚 All Books</button>
+      <button class="ap-tab" onclick="switchTab('tabSettings',this)">🔧 Settings</button>
+    </div>
+
+    <div id="tabAdd" class="ap-pane active">
+      <div class="ap-form">
+        <h3 id="formHeading">Add a New Book</h3>
+        <input type="hidden" id="editId"/>
+        <div class="ap-grid">
+          <div class="af"><label>Title *</label><input type="text" id="aTitle" placeholder="e.g. Atomic Habits"/></div>
+          <div class="af"><label>Author *</label><input type="text" id="aAuthor" placeholder="e.g. James Clear"/></div>
+          <div class="af"><label>Genre *</label>
+            <select id="aGenre">
+              <option value="fiction">Fiction</option>
+              <option value="nonfiction">Non-Fiction</option>
+              <option value="academic">Academic</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="af"><label>Condition *</label>
+            <select id="aCondition">
+              <option value="new">New copy</option>
+              <option value="used">Pre-loved</option>
+            </select>
+          </div>
+          <div class="af"><label>Condition note</label><input type="text" id="aCondNote" placeholder="e.g. Minor highlighting"/></div>
+          <div class="af"><label>Price in HUF *</label><input type="number" id="aPrice" placeholder="e.g. 4500" min="0"/></div>
+          <div class="af"><label>Discount % (0 = none)</label><input type="number" id="aDiscount" placeholder="e.g. 20" min="0" max="90"/></div>
+          <div class="af"><label>Spine colour (if no photo)</label><input type="color" id="aColor" value="#5c3a1e"/></div>
+          <div class="af"><label>Year Published</label><input type="number" id="aYear" placeholder="e.g. 2018" min="1800" max="2030"/></div>
+          <div class="af"><label>Number of Pages</label><input type="number" id="aPages" placeholder="e.g. 320" min="1"/></div>
+          <div class="af"><label>Format</label>
+            <select id="aFormat">
+              <option value="">— not specified —</option>
+              <option value="Paperback">Paperback</option>
+              <option value="Hardcover">Hardcover</option>
+              <option value="E-book">E-book</option>
+            </select>
+          </div>
+          <div class="af"><label>Publisher</label><input type="text" id="aPublisher" placeholder="e.g. Penguin Books"/></div>
+          <div class="af af-full"><label>Short Description</label><textarea id="aDescription" placeholder="A short summary of what the book is about…" style="min-height:80px;width:100%;padding:8px 11px;border:1.5px solid #3a2f2c;border-radius:4px;background:#1c1613;color:#fff;font-family:'Inter',sans-serif;font-size:.85rem;outline:none;resize:vertical;"></textarea></div>
+          <div class="af af-full">
+  <label>Book Photo</label>
+  <div class="photo-upload-box" style="margin-bottom:10px;">
+    <input type="file" id="photoFileInput" accept="image/*" onchange="handlePhoto(this)"/>
+    <div class="photo-upload-hint">📷 Tap to upload from your device<br/><span style="font-size:.6rem;color:#6a5040;margin-top:3px;display:block">Auto-compressed · JPG or PNG</span></div>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+    <div style="flex:1;height:1px;background:#3a2f2c;"></div>
+    <span style="color:#8c6f5f;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;">OR PASTE IMGUR URL</span>
+    <div style="flex:1;height:1px;background:#3a2f2c;"></div>
+  </div>
+  <input type="text" id="aPhotoUrl" placeholder="https://i.imgur.com/abc123.jpg" style="width:100%;padding:8px 11px;border:1.5px solid #3a2f2c;border-radius:4px;background:#1c1613;color:#fff;font-family:'Inter',sans-serif;font-size:.82rem;outline:none;margin-bottom:4px;" oninput="handlePhotoUrl(this.value)"/>
+  <p style="font-size:.7rem;color:#6a5040;margin-bottom:8px;">Upload to <strong>imgur.com</strong> → right-click image → Copy image address → paste above</p>
+  <div id="photoPreview" style="margin-top:8px;"></div>
+  <p id="compressNote" style="font-size:.72rem;color:#7aaa8a;margin-top:4px;font-family:'DM Mono',monospace;"></p>
+</div>
+          <div class="af af-full ap-btns">
+            <button class="ap-btn ap-btn-primary" onclick="saveBook()">💾 Save Book</button>
+            <button class="ap-btn ap-btn-secondary" onclick="clearForm()">✕ Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tabManage" class="ap-pane">
+      <div id="apBookList" class="ap-book-list"></div>
+    </div>
+
+    <div id="tabSettings" class="ap-pane">
+      <div class="settings-grid">
+        <div class="s-box">
+          <h4>Contact Info</h4>
+          <div class="s-row"><label>Telegram username (without @)</label><input type="text" id="sTg" placeholder="yourusername"/></div>
+          <div class="s-row"><label>Email address</label><input type="text" id="sEmail" placeholder="islombek.personal@gmail.com"/></div>
+          <button class="ap-btn ap-btn-primary" style="margin-top:5px" onclick="saveSettings()">💾 Save</button>
+        </div>
+        <div class="s-box">
+          <h4>Change Admin Password</h4>
+          <div class="s-row"><label>Current password</label><input type="password" id="sOld" placeholder="current password"/></div>
+          <div class="s-row"><label>New password</label><input type="password" id="sNew" placeholder="new password (min 4 chars)"/></div>
+          <div class="s-row"><label>Confirm new password</label><input type="password" id="sConf" placeholder="repeat new password"/></div>
+          <button class="ap-btn ap-btn-primary" style="margin-top:5px" onclick="changePass()">🔑 Change Password</button>
+        </div>
+        <div class="s-box" style="grid-column:1/-1">
+          <h4>Google Sheets Connection</h4>
+          <div class="info-box"><strong>ℹ️ How to connect</strong>Paste your Google Apps Script Web App URL. Make sure it ends in <strong>/exec</strong></div>
+          <div class="s-row"><label>Apps Script Web App URL</label><input type="text" id="sSheetUrl" placeholder="https://script.google.com/macros/s/YOUR_ID/exec"/></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:5px;align-items:center">
+            <button class="ap-btn ap-btn-primary" onclick="saveSheetUrl()">🔗 Save URL</button>
+            <button class="ap-btn ap-btn-secondary" onclick="testConnection()">🧪 Test Connection</button>
+          </div>
+        </div>
+        <div class="s-box" style="grid-column:1/-1">
+          <h4>Danger Zone</h4>
+          <p style="color:#8c6f5f;font-size:.78rem;margin-bottom:11px">Clears local cache only. Books in Google Sheet are safe.</p>
+          <button class="ap-btn ap-btn-danger" onclick="clearLocalCache()">🗑️ Clear Local Cache</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════
+//  CONFIG & HELPERS
+// ════════════════════════════════
+const GENRES  = {fiction:'Fiction', nonfiction:'Non-Fiction', academic:'Academic', other:'Other'};
+const RATES   = {HUF:1, UZS:12.66, USD:0.0026, EUR:0.0024};
+const SYMBOLS = {UZS:'UZS', USD:'$', EUR:'€', HUF:'Ft'};
+const DEF_PASS = 'lolo1211';
+
+let activeCurrency = 'HUF';
+let allBooks       = [];
+let currentFilter  = 'all';
+let currentPhoto   = null;
+
+const ls = (k,v) => v===undefined ? localStorage.getItem(k)||'' : localStorage.setItem(k,String(v));
+const getPass = () => { const p=localStorage.getItem('bc_pass'); return (p&&p.length>=4)?p:DEF_PASS; };
+const getSheetUrl = () => {
+  const savedUrl = ls('bc_sheetUrl');
+  // This uses your saved URL if it exists, otherwise it uses the hardcoded one
+  return savedUrl || "https://script.google.com/macros/s/AKfycbye4BdIqkyKbyeLcTsqGUpF3dNc7lcG7EjqUmwNr_9upfMjP0Ggonh0ha0In7mlSFZ9Hw/exec";
+};
+
+function convertPrice(uzs){ return Math.round(parseInt(uzs||0)*RATES[activeCurrency]).toLocaleString(); }
+function sym(){ return SYMBOLS[activeCurrency]; }
+
+// ════════════════════════════════
+//  CURRENCY
+// ════════════════════════════════
+function setCurrency(c,btn){
+  activeCurrency=c;
+  document.querySelectorAll('.curr-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  document.getElementById('statCurr').textContent=c;
+  renderBooks();
+}
+
+// ════════════════════════════════
+//  GOOGLE SHEETS - all via JSONP
+// ════════════════════════════════
+function animateLoadingBar(onDone){
+  let pct=0;
+  const bar=document.getElementById('loadingBar');
+  const pctEl=document.getElementById('loadingPct');
+  // fast to 80%, then wait for real data
+  const tick=setInterval(()=>{
+    const step = pct<60?4 : pct<80?1.5 : 0.3;
+    pct=Math.min(pct+step, 80);
+    if(bar) bar.style.width=pct+'%';
+    if(pctEl) pctEl.textContent=Math.round(pct)+'%';
+  }, 80);
+  return function finish(){
+    clearInterval(tick);
+    if(bar) bar.style.width='100%';
+    if(pctEl) pctEl.textContent='100%';
+    setTimeout(onDone, 300);
+  };
+}
+
+// ════════════════════════════════
+//  JSONP — the only method that works cross-origin from GitHub Pages
+// ════════════════════════════════
+function jsonp(url, timeout){
+  timeout = timeout || 15000;
+  return new Promise((resolve, reject) => {
+    const cb = 'jcb_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+    const script = document.createElement('script');
+    const timer = setTimeout(() => { cleanup(); reject(new Error('Timeout')); }, timeout);
+    window[cb] = (data) => { cleanup(); resolve(data); };
+    function cleanup(){ clearTimeout(timer); delete window[cb]; if(script.parentNode) script.parentNode.removeChild(script); }
+    script.onerror = () => { cleanup(); reject(new Error('Load error')); };
+    script.src = url + (url.includes('?') ? '&' : '?') + 'callback=' + cb + '&_=' + Date.now();
+    document.head.appendChild(script);
+  });
+}
+
+// ════════════════════════════════
+//  GOOGLE SHEETS — all via JSONP
+// ════════════════════════════════
+async function fetchBooks(){
+  const cached = localStorage.getItem('bc_cache');
+  if(cached){
+    try{ allBooks=JSON.parse(cached); updateCount(); renderBooks(); }catch(e){}
+  }
+
+  const url = getSheetUrl();
+  if(!url){ if(!cached){ allBooks=[]; renderBooks(); } return; }
+
+  try{
+    const data = await jsonp(url + '?action=getBooks');
+    if(data && data.books){
+      allBooks = data.books;
+      localStorage.setItem('bc_cache', JSON.stringify(allBooks));
+      updateCount();
+      renderBooks();
+    }
+  } catch(e){
+    console.warn('JSONP failed:', e);
+    if(!cached){ allBooks=[]; renderBooks(); }
+  }
+}
+function updateCount(){ document.getElementById('statCount').textContent = allBooks.filter(b=>!b.sold).length; }
+
+async function pushToSheet(book){
+  const url = getSheetUrl();
+  if(!url) throw new Error('No sheet URL');
+  const action = book._isUpdate ? 'update' : 'add';
+  const encoded = encodeURIComponent(JSON.stringify(book));
+  return await jsonp(`${url}?action=${action}&data=${encoded}`);
+}
+
+async function deleteFromSheet(id){
+  const url = getSheetUrl();
+  if(!url) throw new Error('No sheet URL');
+  return await jsonp(`${url}?action=delete&id=${encodeURIComponent(id)}`);
+}
+
+// ════════════════════════════════
+//  PHOTO COMPRESSION
+// ════════════════════════════════
+function handlePhoto(input){
+  const file = input.files[0];
+  if(!file) return;
+  document.getElementById('compressNote').textContent='Compressing…';
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const MAX=600;
+      let w=img.width, h=img.height;
+      if(w>MAX){ h=Math.round(h*MAX/w); w=MAX; }
+      const canvas = document.createElement('canvas');
+      canvas.width=w; canvas.height=h;
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      const compressed = canvas.toDataURL('image/jpeg',0.75);
+      currentPhoto = {data:compressed};
+      document.getElementById('compressNote').textContent=`✓ Ready (${Math.round(compressed.length*0.75/1024)} KB)`;
+      document.getElementById('photoPreview').innerHTML=`<div class="photo-thumb"><img src="${compressed}" alt=""/><button class="rm" onclick="removePhoto()">✕</button></div>`;
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+  input.value='';
+}
+function removePhoto(){
+  currentPhoto=null;
+  document.getElementById('photoPreview').innerHTML='';
+  document.getElementById('compressNote').textContent='';
+  const fi=document.getElementById('photoFileInput'); if(fi) fi.value='';
+  const pu=document.getElementById('aPhotoUrl'); if(pu) pu.value='';
+}
+function handlePhotoUrl(url){
+  if(!url||url.length<10){ currentPhoto=null; document.getElementById('photoPreview').innerHTML=''; return; }
+  currentPhoto={data:url, type:'url'};
+  document.getElementById('photoPreview').innerHTML=
+    `<div class="photo-thumb" style="width:80px;height:100px"><img src="${url}" alt="" onerror="this.parentNode.innerHTML='<span style=color:#f08080;font-size:.65rem>Cannot load</span>'"/></div>`;
+  document.getElementById('compressNote').textContent='✓ URL set';
+}
+
+// ════════════════════════════════
+//  STOREFRONT
+// ════════════════════════════════
+function initStorefront(){
+  const tg=ls('bc_tg')||'isroilcv';
+  const em=ls('bc_email')||'islombek.personal@gmail.com';
+  document.getElementById('tgLink').href=`https://t.me/${tg}`;
+  document.getElementById('tgLink').textContent=`@${tg} →`;
+  document.getElementById('emailLink').href=`mailto:${em}`;
+  document.getElementById('emailLink').textContent=em+' →';
+  document.getElementById('bannerTg').href=`https://t.me/${tg}`;
+  fetchBooks();
+}
+
+// ── CATEGORY SCROLL & ANIMATION ──
+(function(){
+  // drag to scroll
+  const wrap = document.getElementById('catScroll');
+  if(!wrap) return;
+  let isDown=false, startX, scrollLeft;
+  wrap.addEventListener('mousedown', e=>{ isDown=true; wrap.classList.add('dragging'); startX=e.pageX-wrap.offsetLeft; scrollLeft=wrap.scrollLeft; });
+  wrap.addEventListener('mouseleave', ()=>{ isDown=false; wrap.classList.remove('dragging'); });
+  wrap.addEventListener('mouseup', ()=>{ isDown=false; wrap.classList.remove('dragging'); });
+  wrap.addEventListener('mousemove', e=>{ if(!isDown) return; e.preventDefault(); const x=e.pageX-wrap.offsetLeft; wrap.scrollLeft=scrollLeft-(x-startX); });
+
+  // animate cards in on scroll
+  const cards = document.querySelectorAll('.cat-card');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach((entry,i)=>{
+      if(entry.isIntersecting){
+        setTimeout(()=>entry.target.classList.add('visible'), i*80);
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.1});
+  cards.forEach(c=>observer.observe(c));
+})();
+
+function jumpToFilter(genre){
+  // find by id first, then fall back to searching by onclick attribute
+  let btn = document.getElementById('fb-'+genre);
+  if(!btn){
+    btn = Array.from(document.querySelectorAll('.fb')).find(b=>
+      b.getAttribute('onclick') && b.getAttribute('onclick').includes("'"+genre+"'")
+    );
+  }
+  if(btn) filterBooks(genre, btn);
+  document.getElementById('books').scrollIntoView({behavior:'smooth'});
+}
+
+function filterBooks(f,btn){
+  currentFilter=f;
+  document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderBooks();
+}
+
+let searchQuery = '';
+
+function onSearch(val){
+  searchQuery = val.trim().toLowerCase();
+  const clearBtn = document.getElementById('searchClear');
+  if(clearBtn) clearBtn.classList.toggle('visible', searchQuery.length>0);
+  renderBooks();
+}
+function clearSearch(){
+  searchQuery='';
+  const inp=document.getElementById('searchInput');
+  const clearBtn=document.getElementById('searchClear');
+  if(inp) inp.value='';
+  if(clearBtn) clearBtn.classList.remove('visible');
+  renderBooks();
+}
+
+function renderBooks(){
+  let list=allBooks.filter(b=>{
+    const matchFilter = currentFilter==='all' ? true
+      : currentFilter==='new' ? b.condition==='new'
+      : currentFilter==='used' ? b.condition==='used'
+      : currentFilter==='discount' ? parseInt(b.discount||0)>0
+      : b.genre===currentFilter;
+    const matchSearch = !searchQuery
+      || (b.title||'').toLowerCase().includes(searchQuery)
+      || (b.author||'').toLowerCase().includes(searchQuery);
+    const matchFormat = !activeFormat || (b.format||'')=== activeFormat;
+    if(currentFilter==='all' && !searchQuery && !activeFormat) return true;
+    return matchFilter && matchSearch && matchFormat;
+  });
+  const grid=document.getElementById('booksGrid');
+  if(!getSheetUrl() && allBooks.length===0){
+    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🔗</div><p><strong>Not connected yet.</strong><br/>Open admin (⚙️) → Settings → connect Google Sheet.</p></div>`;
+    return;
+  }
+  if(!list.length){
+    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">📭</div><p>No books here yet — check back soon!</p></div>`;
+    return;
+  }
+
+  grid.innerHTML=list.map((b,i)=>{
+    const disc=parseInt(b.discount||0);
+    const orig=parseInt(b.price||0);
+    const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
+    const s=sym();
+    const photoHtml = b.photoUrl && b.photoUrl.length > 10
+  ? `<img src="${b.photoUrl}" alt="${b.title}"/>`
+  : `<div class="no-photo-book" style="background:${b.color||'#5c3a1e'}">${b.title}</div>`;
+    const ribbon=disc>0?`<div class="disc-ribbon">-${disc}% OFF</div>`:'';
+    const priceBlock=disc>0
+      ?`<div class="orig-price">${convertPrice(orig)} ${s}</div><div class="book-price">${convertPrice(fin)} <span>${s}</span></div>`
+      :`<div class="book-price">${convertPrice(fin)} <span>${s}</span></div>`;
+    const action=b.sold
+      ?`<span class="sold-lbl">✓ Sold</span>`
+      :`<div style="display:flex;gap:5px;flex-wrap:wrap">
+          <button class="details-btn" onclick='openDetailsModal(${JSON.stringify(b).replace(/'/g,"&#39;")})'>Details</button>
+          <button class="buy-btn" onclick='openBuyModal(${JSON.stringify(b).replace(/'/g,"&#39;")})'>I want this</button>
+        </div>`;
+    return `<div class="book-card" style="animation:fadeUp .5s ${i*.06}s both">
+      <div class="book-photo">${photoHtml}<span class="badge ${b.condition==='new'?'badge-new':'badge-used'}">${b.condition==='new'?'New':'Pre-loved'}</span>${ribbon}</div>
+      <div class="book-info">
+        <div class="book-genre">${GENRES[b.genre]||b.genre}</div>
+        <div class="book-title">${b.title}</div>
+        <div class="book-author">${b.author}</div>
+        ${b.condNote?`<div class="book-cond">📋 ${b.condNote}</div>`:''}
+        <div class="book-footer"><div>${priceBlock}</div>${action}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openBuyModal(b){
+  const tg=ls('bc_tg')||'isroilcv';
+  const em=ls('bc_email')||'islombek.personal@gmail.com';
+  const disc=parseInt(b.discount||0);
+  const orig=parseInt(b.price||0);
+  const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
+  document.getElementById('mTitle').textContent=b.title;
+  document.getElementById('mMeta').textContent=`${b.author} · ${GENRES[b.genre]||b.genre} · ${convertPrice(fin)} ${sym()}`;
+  const msg=encodeURIComponent(`Hi! I'm interested in "${b.title}" by ${b.author} (${fin.toLocaleString()} HUF). Is it available for pickup?`);
+  document.getElementById('mTg').href=`https://t.me/${tg}?text=${msg}`;
+  document.getElementById('mEmail').href=`mailto:${em}?subject=${encodeURIComponent('Book: '+b.title)}&body=${msg}`;
+  document.getElementById('buyOverlay').classList.add('open');
+}
+function closeBuyModal(e){ if(e.target===document.getElementById('buyOverlay')) document.getElementById('buyOverlay').classList.remove('open'); }
+
+function openDetailsModal(b){
+  document.body.classList.add('modal-open');
+  const tg=ls('bc_tg')||'isroilcv';
+  const em=ls('bc_email')||'islombek.personal@gmail.com';
+  const disc=parseInt(b.discount||0);
+  const orig=parseInt(b.price||0);
+  const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
+
+  // Photo
+  const photoEl=document.getElementById('detailsPhoto');
+  photoEl.innerHTML = b.photoUrl&&b.photoUrl.length>5
+    ?`<img src="${b.photoUrl}" alt="${b.title}" style="width:100%;height:100%;object-fit:cover;"/>`
+    :`<div class="no-photo-book" style="background:${b.color||'#5c3a1e'};width:88px;height:128px">${b.title}</div>`;
+
+  document.getElementById('detailsGenre').textContent = GENRES[b.genre]||b.genre;
+  document.getElementById('detailsTitle').textContent = b.title;
+  document.getElementById('detailsAuthor').textContent = b.author;
+  document.getElementById('detailsDesc').textContent = b.description||'No description available.';
+
+  // Meta grid
+  const meta=[];
+  if(b.year)      meta.push(['Year',b.year]);
+  if(b.pages)     meta.push(['Pages',b.pages]);
+  if(b.format)    meta.push(['Format',b.format]);
+  if(b.publisher) meta.push(['Publisher',b.publisher]);
+  if(b.condition) meta.push(['Condition',b.condition==='new'?'New copy':'Pre-loved']);
+  if(b.condNote)  meta.push(['Note',b.condNote]);
+  document.getElementById('detailsMeta').innerHTML = meta.map(([l,v])=>
+    `<div class="detail-item"><div class="di-label">${l}</div><div class="di-val">${v}</div></div>`
+  ).join('');
+
+  // Price
+  const priceHtml = disc>0
+    ?`<span style="text-decoration:line-through;color:var(--silver);font-size:.8rem;font-family:'DM Mono',monospace">${orig.toLocaleString()} Ft</span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--night-d);font-weight:700;margin-left:8px">${convertPrice(fin)} <span style="font-size:.75rem;font-weight:400;color:var(--muted)">${sym()}</span></span>`
+    :`<span style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--night-d);font-weight:700">${convertPrice(fin)} <span style="font-size:.75rem;font-weight:400;color:var(--muted)">${sym()}</span></span>`;
+  document.getElementById('detailsPrice').innerHTML=priceHtml;
+
+  const msg=encodeURIComponent(`Hi! I'm interested in "${b.title}" by ${b.author} (${fin.toLocaleString()} HUF). Is it available for pickup?`);
+  document.getElementById('detailsTg').href=`https://t.me/${tg}?text=${msg}`;
+  document.getElementById('detailsEmail').href=`mailto:${em}?subject=${encodeURIComponent('Book: '+b.title)}&body=${msg}`;
+  document.getElementById('detailsOverlay').classList.add('open');
+}
+function closeDetailsModal(e){
+  if(e.target===document.getElementById('detailsOverlay')){
+    document.getElementById('detailsOverlay').classList.remove('open');
+    document.body.classList.remove('modal-open');
+  }
+}
+function toggleDesc(){
+  const p=document.getElementById('detailsDesc');
+  const btn=document.getElementById('descToggle');
+  if(p.classList.contains('collapsed')){
+    p.classList.replace('collapsed','expanded');
+    btn.textContent='Show less ▴';
+  } else {
+    p.classList.replace('expanded','collapsed');
+    btn.textContent='Show more ▾';
+  }
+}
+
+function sendEnquiry(){
+  const name=document.getElementById('fname').value.trim();
+  const contact=document.getElementById('fcontact').value.trim();
+  const books=document.getElementById('fbooks').value.trim();
+  const msg=document.getElementById('fmsg').value.trim();
+  if(!name||!contact||!books){showToast('Fill in name, contact and book title','error');return;}
+  const subj=encodeURIComponent(`Book enquiry from ${name}`);
+  const body=encodeURIComponent(`Name: ${name}\nContact: ${contact}\nBooks: ${books}\n\nMessage: ${msg||'(none)'}`);
+  window.location.href=`mailto:${ls('bc_email')||'islombek.personal@gmail.com'}?subject=${subj}&body=${body}`;
+}
+
+// ════════════════════════════════
+//  ADMIN
+// ════════════════════════════════
+// Secret admin access — triple-tap logo (mobile) or press Ctrl+Shift+A (keyboard)
+(function(){
+  let taps=0, tapTimer;
+  const logo=document.getElementById('logoWrap');
+  if(logo){
+    logo.addEventListener('click',()=>{
+      taps++;
+      clearTimeout(tapTimer);
+      tapTimer=setTimeout(()=>taps=0, 600);
+      if(taps>=3){ taps=0; promptAdmin(); }
+    });
+  }
+ const _keysDown = new Set();
+  document.addEventListener('keydown', e=>{
+    _keysDown.add(e.key.toLowerCase());
+    if(_keysDown.has('a') && _keysDown.has('d')){ _keysDown.clear(); promptAdmin(); }
+  });
+  document.addEventListener('keyup', e=>{ _keysDown.delete(e.key.toLowerCase()); });
+})();
+
+function promptAdmin(){
+  const pw=prompt('Enter admin password:');
+  if(pw===null) return;
+  if(pw===getPass()) openAdmin();
+  else showToast('Wrong password','error');
+}
+function openAdmin(){ document.getElementById('adminPanel').classList.add('open'); loadSettingsForm(); renderAdminList(); }
+function closeAdmin(){ document.getElementById('adminPanel').classList.remove('open'); initStorefront(); }
+function switchTab(id,btn){
+  document.querySelectorAll('.ap-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ap-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='tabManage') renderAdminList();
+  if(id==='tabSettings') loadSettingsForm();
+}
+
+async function saveBook(){
+  const id       = document.getElementById('editId').value;
+  const title    = document.getElementById('aTitle').value.trim();
+  const author   = document.getElementById('aAuthor').value.trim();
+  const genre    = document.getElementById('aGenre').value;
+  const condition= document.getElementById('aCondition').value;
+  const condNote = document.getElementById('aCondNote').value.trim();
+  const price    = document.getElementById('aPrice').value.trim();
+  const discount = document.getElementById('aDiscount').value.trim() || '0';
+  const color    = document.getElementById('aColor').value;
+  // Use uploaded/compressed photo if available, otherwise use typed URL
+  const photoUrl = (currentPhoto && currentPhoto.data) ? currentPhoto.data : document.getElementById('aPhotoUrl').value.trim();
+  const year        = document.getElementById('aYear').value.trim();
+  const pages       = document.getElementById('aPages').value.trim();
+  const format      = document.getElementById('aFormat').value;
+  const publisher   = document.getElementById('aPublisher').value.trim();
+  const description = document.getElementById('aDescription').value.trim();
+
+  if(!title || !author || !price){
+    showToast('Title, author and price required','error');
+    return;
+  }
+
+ const book = {
+    id: id || Date.now().toString(),
+    title, author, genre, condition, condNote, price, discount, color,
+    photoUrl, year, pages, format, publisher, description,
+    sold: false,
+    added: new Date().toISOString(),
+    _isUpdate: !!id
+  };
+
+  showToast('Saving to Google Sheet...');
+
+  const url = getSheetUrl();
+  if(url){
+    try{
+      await pushToSheet(book);
+      showToast(id ? 'Book updated ✓' : 'Book added ✓','success');
+    } catch(e){
+      console.error(e);
+      showToast('Sheet unreachable — saved locally only','error');
+      saveLocally(book, !!id);
+    }
+  } else {
+    saveLocally(book, !!id);
+    showToast(id ? 'Updated locally ✓' : 'Added locally ✓','success');
+  }
+
+  clearForm();
+  await fetchBooks();
+  renderAdminList();
+}
+
+function saveLocally(book,isEdit){
+  let books=JSON.parse(localStorage.getItem('bc_cache')||'[]');
+  if(isEdit){
+    const idx=books.findIndex(b=>b.id===book.id);
+    if(idx>-1) books[idx]=book;
+    else books.unshift(book);
+  } else books.unshift(book);
+  localStorage.setItem('bc_cache',JSON.stringify(books));
+  allBooks=books;
+}
+
+function editBook(id){
+  const b=allBooks.find(b=>b.id===id);
+  if(!b) return;
+  document.getElementById('editId').value=b.id;
+  document.getElementById('aTitle').value=b.title;
+  document.getElementById('aAuthor').value=b.author;
+  document.getElementById('aGenre').value=b.genre;
+  document.getElementById('aCondition').value=b.condition;
+  document.getElementById('aCondNote').value=b.condNote||'';
+  document.getElementById('aPrice').value=b.price;
+  document.getElementById('aDiscount').value=b.discount||0;
+  document.getElementById('aColor').value=b.color||'#5c3a1e';
+  document.getElementById('aPhotoUrl').value=b.photoUrl||'';
+  document.getElementById('aYear').value=b.year||'';
+  document.getElementById('aPages').value=b.pages||'';
+  document.getElementById('aFormat').value=b.format||'';
+  document.getElementById('aPublisher').value=b.publisher||'';
+  document.getElementById('aDescription').value=b.description||'';
+  if(b.photoUrl&&b.photoUrl.length>5){
+    document.getElementById('photoPreview').innerHTML=`<div class="photo-thumb" style="width:80px;height:100px"><img src="${b.photoUrl}" alt=""/></div>`;
+  }
+  document.getElementById('formHeading').textContent='Edit Book';
+  switchTab('tabAdd',document.querySelectorAll('.ap-tab')[0]);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+async function toggleSold(id){
+  const b=allBooks.find(b=>b.id===id);
+  if(!b) return;
+  b.sold = !b.sold;
+  const url=getSheetUrl();
+  if(url){ try{ await pushToSheet(b); }catch(e){} }
+  saveLocally(b,true);
+  renderAdminList(); renderBooks(); updateCount();
+  showToast(b.sold?'Marked as sold ✓':'Listed again ✓','success');
+}
+
+async function deleteBook(id){
+  if(!confirm('Delete this book? Cannot be undone.')) return;
+  const url=getSheetUrl();
+  if(url){ try{ await deleteFromSheet(id); }catch(e){} }
+  allBooks=allBooks.filter(b=>b.id!==id);
+  localStorage.setItem('bc_cache',JSON.stringify(allBooks));
+  renderAdminList(); renderBooks(); updateCount();
+  showToast('Book deleted','success');
+}
+
+function clearForm(){
+  ['editId','aTitle','aAuthor','aCondNote','aPrice','aDiscount'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('aGenre').value='fiction';
+  document.getElementById('aCondition').value='new';
+  document.getElementById('aColor').value='#5c3a1e';
+  ['aPhotoUrl','aYear','aPages','aPublisher','aDescription'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('aFormat').value='';
+  currentPhoto=null;
+  document.getElementById('photoPreview').innerHTML='';
+  document.getElementById('compressNote').textContent='';
+  document.getElementById('formHeading').textContent='Add a New Book';
+}
+
+function renderAdminList(){
+  const el=document.getElementById('apBookList');
+  if(!allBooks.length){el.innerHTML='<div class="empty"><div class="empty-icon">📭</div><p style="color:#8c6f5f">No books yet — add your first one!</p></div>';return;}
+  el.innerHTML=allBooks.map(b=>{
+    const disc=parseInt(b.discount||0);
+    const orig=parseInt(b.price||0);
+    const fin=disc>0?Math.round(orig*(1-disc/100)):orig;
+    const pStr=disc>0?`${fin.toLocaleString()} HUF <span style="text-decoration:line-through;color:#8c6f5f;font-size:.68rem">${orig.toLocaleString()}</span>`:`${orig.toLocaleString()} HUF`;
+    const isSold=!!b.sold;
+    const thumb = b.photoUrl && b.photoUrl.length > 10 
+  ? `<img src="${b.photoUrl}" alt=""/>` 
+  : '📷';
+    return `<div class="ap-book-row">
+      <div class="ap-thumb">${thumb}</div>
+      <div class="ap-binfo">
+        <strong>${b.title}${isSold?'<span class="sold-tag">Sold</span>':''}${disc>0?`<span class="disc-tag">-${disc}%</span>`:''}</strong>
+        <span>${b.author} · ${GENRES[b.genre]||b.genre} · ${b.condition==='new'?'New':'Pre-loved'}</span>
+      </div>
+      <div class="ap-price">${pStr}</div>
+      <div class="ap-actions">
+        <button class="btn-edit" onclick="editBook('${b.id}')">✏️ Edit</button>
+        <button class="btn-sold-toggle" onclick="toggleSold('${b.id}')">${isSold?'↩ Unlist':'✓ Sold'}</button>
+        <button class="btn-del" onclick="deleteBook('${b.id}')">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// SETTINGS
+function loadSettingsForm(){
+  document.getElementById('sTg').value    = ls('bc_tg')       || 'isroilcv';
+  document.getElementById('sEmail').value = ls('bc_email')    || 'islombek.personal@gmail.com';
+  document.getElementById('sSheetUrl').value = ls('bc_sheetUrl') || 'https://script.google.com/macros/s/AKfycbye4BdIqkyKbyeLcTsqGUpF3dNc7lcG7EjqUmwNr_9upfMjP0Ggonh0ha0In7mlSFZ9Hw/exec';
+}
+function saveSettings(){
+  ls('bc_tg',    document.getElementById('sTg').value.trim().replace('@',''));
+  ls('bc_email', document.getElementById('sEmail').value.trim());
+  ls('bc_sheetUrl', document.getElementById('sSheetUrl').value.trim());
+  showToast('Settings saved ✓','success');
+}
+function changePass(){
+  const old=document.getElementById('sOld').value;
+  const n=document.getElementById('sNew').value;
+  const c=document.getElementById('sConf').value;
+  if(old!==getPass()){showToast('Current password wrong','error');return;}
+  if(n.length<4){showToast('Min 4 characters','error');return;}
+  if(n!==c){showToast("Passwords don't match",'error');return;}
+  localStorage.setItem('bc_pass',n);
+  ['sOld','sNew','sConf'].forEach(id=>document.getElementById(id).value='');
+  showToast('Password changed ✓','success');
+}
+function saveSheetUrl(){
+  ls('bc_sheetUrl',document.getElementById('sSheetUrl').value.trim());
+  showToast('URL saved ✓','success');
+}
+async function testConnection(){
+  const url=document.getElementById('sSheetUrl').value.trim();
+  if(!url){showToast('Enter URL first','error');return;}
+  showToast('Testing…');
+  try{
+    const data = await jsonp(url+'?action=getBooks', 10000);
+    const n=(data.books||[]).length;
+    showToast(`✅ Connected — ${n} book${n!==1?'s':''} found`,'success');
+  }catch(e){
+    showToast('❌ Connection failed','error');
+  }
+}
+function clearLocalCache(){
+  if(!confirm('Clear local cache?'))return;
+  localStorage.removeItem('bc_cache');
+  allBooks=[];renderBooks();renderAdminList();
+  showToast('Cache cleared','success');
+}
+
+// TOAST
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className=`toast ${type} show`;
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// INIT
+initStorefront();
+
+let activeFormat = '';
+
+function filterByFormat(fmt){
+  activeFormat = fmt;
+  // update button states
+  ['fmtHardcover','fmtPaperback','fmtAll'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.classList.remove('active');
+  });
+  if(fmt==='Hardcover') document.getElementById('fmtHardcover').classList.add('active');
+  else if(fmt==='Paperback') document.getElementById('fmtPaperback').classList.add('active');
+  else document.getElementById('fmtAll').classList.add('active');
+  // scroll to books and re-render
+  document.getElementById('books').scrollIntoView({behavior:'smooth'});
+  renderBooks();
+}
+
+function syncStatsBanner(){
+  const available = allBooks.filter(b=>!b.sold);
+  const count = (genre) => available.filter(b=> genre==='new' ? b.condition==='new' : genre==='discount' ? parseInt(b.discount||0)>0 : b.genre===genre).length;
+  const set = (id, n) => { const el=document.getElementById(id); if(el) el.textContent = n||'0'; };
+  set('sbFiction',   count('fiction'));
+  set('sbNonfiction',count('nonfiction'));
+  set('sbAcademic',  count('academic'));
+  set('sbNew',       count('new'));
+  set('sbDiscount',  count('discount'));
+}
+
+function syncIllusCount(){
+  const n = allBooks.filter(b=>!b.sold).length;
+  const el1 = document.getElementById('illusCount');
+  const el2 = document.getElementById('illusPillNum');
+  if(el1) el1.textContent = n + ' books';
+  if(el2) el2.textContent = n;
+}
+const _origUpdateCount = updateCount;
+updateCount = function(){ _origUpdateCount(); syncIllusCount(); syncStatsBanner(); };
+syncIllusCount();
+syncStatsBanner();
+</script>
+</body>
+</html>
