@@ -1512,6 +1512,9 @@ function syncIllusCount(){
   if(el2) el2.textContent = n;
 }
 
+const _origUpdateCount = updateCount;
+updateCount = function(){ _origUpdateCount(); syncIllusCount(); syncStatsBanner(); };
+
 // Start everything when the page loads
 window.addEventListener('DOMContentLoaded', initStorefront);
 </script>
