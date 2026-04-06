@@ -1485,6 +1485,7 @@ function syncIllusCount(){
 }
 const _origUpdateCount = updateCount;
 updateCount = function(){ _origUpdateCount(); syncIllusCount(); syncStatsBanner(); };
+filterByFormat(fmt); 
 syncIllusCount();
 syncStatsBanner();
 initStorefront();
