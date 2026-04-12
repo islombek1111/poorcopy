@@ -705,6 +705,58 @@ body.modal-open{overflow:hidden;}
       <div class="map-wrap">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1347.8274246755452!2d19.068914620283707!3d47.49663684426092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc6767b07d9b%3A0x7be2e24544320049!2sBudapest%2C%20Blaha%20Lujza%20t%C3%A9r%2C%201085!5e0!3m2!1sen!2shu!4v1774790532997!5m2!1sen!2shu" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
+
+      <!-- Paste this DIV exactly where the blank space is (right after your map embed) -->
+<div class="floating-books">
+  <div class="book">📘</div>
+  <div class="book">📗</div>
+  <div class="book">📕</div>
+  <div class="book">📙</div>
+  <div class="book">📖</div>
+</div>
+
+<style>
+  .floating-books {
+    width: 100%;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    background: #f8f1e3; /* matches your site's warm beige */
+    border-radius: 12px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .book {
+    font-size: 42px;
+    position: absolute;
+    animation: floatBook 14s linear infinite;
+    opacity: 0.85;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  }
+
+  /* Different start times and speeds for natural feel */
+  .book:nth-child(1) { animation-delay: 0s; left: -10%; }
+  .book:nth-child(2) { animation-delay: 3s; left: -15%; animation-duration: 18s; }
+  .book:nth-child(3) { animation-delay: 7s; left: -5%; animation-duration: 12s; }
+  .book:nth-child(4) { animation-delay: 1.5s; left: -20%; animation-duration: 16s; }
+  .book:nth-child(5) { animation-delay: 9s; left: -8%; animation-duration: 15s; }
+
+  @keyframes floatBook {
+    0%   { transform: translateX(0) translateY(0) rotate(0deg); }
+    25%  { transform: translateX(30vw) translateY(-20px) rotate(8deg); }
+    50%  { transform: translateX(60vw) translateY(10px) rotate(-5deg); }
+    75%  { transform: translateX(85vw) translateY(-15px) rotate(6deg); }
+    100% { transform: translateX(120vw) translateY(0) rotate(0deg); }
+  }
+
+  /* Optional: make it even more premium */
+  @media (max-width: 640px) {
+    .floating-books { height: 110px; }
+    .book { font-size: 34px; }
+  }
+</style>
       <!-- contact icons sit cleanly under the map -->
       <div class="c-contact-icons">
         <a href="#" id="tgLink" target="_blank" class="c-contact-icon-btn c-contact-tg">
